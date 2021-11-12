@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "126123913125",
+    "project_id": "bossqueue-f2bf3",
+    "storage_bucket": "bossqueue-f2bf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126123913125:android:4658a50d1690fb0cef024c",
+        "android_client_info": {
+          "package_name": "com.rigelramadhan.bossqueue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126123913125-ougik0egdl2u3c770shpv5bqe7lddajr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7RVk5YfLzrby6QrXdHcNBLn5nBQKAJlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126123913125-ougik0egdl2u3c770shpv5bqe7lddajr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
