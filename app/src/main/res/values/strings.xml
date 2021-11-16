@@ -6,5 +6,7 @@
     <string name="create_a_new_account">create a new account</string>
     <string name="Hi">Hi !</string>
     <string name="welcome_to_BOSSQUE">welcome to BOSSQUE</string>
-    <string name="this_app_helping_you">this app helping you to bookin menu at your favorite restaurant, cafe. etc</string>
+    <string name="this_app_helping_you_to_bookin">this app helping you to bookin menu at your favorite restaurant, cafe. etc</string>
+    <string name="input_your_data">input your data</string>
+    <string name="this_app_helping_you_to_find">this app helping you to find and order menu on your favorite cafe</string>
 </resources>

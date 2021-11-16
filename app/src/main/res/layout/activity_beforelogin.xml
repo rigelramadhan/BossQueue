@@ -18,7 +18,7 @@
         android:layout_height="80dp"/>
 
     <RelativeLayout
-        android:id="@+id/Layout_round_arrow"
+        android:id="@+id/layout_round_arrow"
         android:layout_below="@id/img_bossque"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
