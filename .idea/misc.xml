@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_background_orange1.xml" value="0.37916666666666665" />
+        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_background_orange1_squared.xml" value="0.37916666666666665" />
+        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_background_orange2.xml" value="0.37916666666666665" />
         <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_search_box_white.xml" value="0.37916666666666665" />
         <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/layout/item_desired_place.xml" value="0.276268115942029" />
