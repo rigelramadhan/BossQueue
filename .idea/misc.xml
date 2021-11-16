@@ -3,16 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_background_orange1.xml" value="0.37916666666666665" />
-        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_background_orange1_squared.xml" value="0.37916666666666665" />
-        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_background_orange2.xml" value="0.37916666666666665" />
-        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/drawable/dr_search_box_white.xml" value="0.37916666666666665" />
-        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/Hetrik/AndroidStudioProjects/BossQueue/app/src/main/res/layout/item_desired_place.xml" value="0.276268115942029" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/dr_background_orange1.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/dr_background_orange2.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/dr_background_orange2_squared.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/dr_button_brown1.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/dr_edit_text_black.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/dr_search_box_white.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_arrow_1.xml" value="0.1578125" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_bossqueue_black.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_bossqueue_white.xml" value="0.1578125" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_image1_background.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_launcher_background.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_search_icon.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_search_orange.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/round_black_background.xml" value="0.2361111111111111" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_beforelogin.xml" value="0.152" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/item_desired_place.xml" value="0.2536231884057971" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/mipmap-anydpi-v26/ic_image1.xml" value="0.1578125" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/mipmap-anydpi-v26/ic_image1_round.xml" value="0.1578125" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1578125" />
+        <entry key="app/src/main/res/drawable/dr_background_orange1.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/drawable/dr_background_orange2.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/drawable/dr_button_brown1.xml" value="0.3703125" />
+        <entry key="app/src/main/res/drawable/dr_button_brown1_orange1.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/drawable/dr_edit_text_black.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3536458333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
