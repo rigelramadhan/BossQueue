@@ -31,7 +31,7 @@
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_1" />
+            android:src="@drawable/icon_arrow_kanan_putih" />
 
     </RelativeLayout>
 
