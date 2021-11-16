@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">BossQueue</string>
+    <string name="search">Search</string>
+    <string name="find_desired_place">Find your desired place</string>
 </resources>

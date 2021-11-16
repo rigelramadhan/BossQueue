@@ -16,4 +16,6 @@
     <color name="black">#242424</color>
     <color name="black_trans_22">#22242424</color>
     <color name="red">#DD3110</color>
+
+    <color name="search_text_color">#b1b1b1</color>
 </resources>
