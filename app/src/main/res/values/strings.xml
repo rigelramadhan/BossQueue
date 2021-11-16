@@ -2,4 +2,9 @@
     <string name="app_name">BossQueue</string>
     <string name="search">Search</string>
     <string name="find_desired_place">Find your desired place</string>
+    <string name="dont_have_any_account">don’t have any account?</string>
+    <string name="create_a_new_account">create a new account</string>
+    <string name="Hi">Hi !</string>
+    <string name="welcome_to_BOSSQUE">welcome to BOSSQUE</string>
+    <string name="this_app_helping_you">this app helping you to bookin menu at your favorite restaurant, cafe. etc</string>
 </resources>
