@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_1">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_findplace"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        app:cardCornerRadius="10dp"
+
+        android:backgroundTint="@color/orange_2"
+        android:clickable="true"
+        android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_placename"
+            android:layout_centerVertical="true"
+            android:text="coffee shop"
+            android:textColor="@color/white"
+            android:textAllCaps="true"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

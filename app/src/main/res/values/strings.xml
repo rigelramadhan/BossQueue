@@ -11,5 +11,7 @@
     <string name="this_app_helping_you_to_find">this app helping you to find and order menu on your favorite cafe</string>
     <string name="helping_you_to_avoid">helping you to avoid a long queue and make fast your book</string>
     <string name="finding_you_the_best">finding you the best option to enjoy your time and meals</string>
-
+    <string name="find_your_place_order">find your place order</string>
+    <string name="HOT_NOW">HOT NOW</string>
+    <string name="NEAR_YOU">NEAR YOU</string>
 </resources>
