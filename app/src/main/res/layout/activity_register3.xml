@@ -23,11 +23,11 @@
         android:background="@color/orange_2">
 
         <ImageView
-            android:id="@+id/img_register1"
+            android:id="@+id/img_register3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="-50dp"
-            android:src="@drawable/img_register1" />
+            android:src="@drawable/img_register3" />
 
         <RelativeLayout
             android:id="@+id/layout_back"
@@ -62,24 +62,24 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="110dp"
             android:gravity="center"
-            android:text="@string/this_app_helping_you_to_find"
+            android:text="@string/finding_you_the_best"
             android:textColor="@color/white"
             android:textSize="17dp" />
 
         <ImageView
-            android:id="@+id/img_bulet1"
+            android:id="@+id/img_bulet3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:src="@drawable/ic_bulet1" />
+            android:src="@drawable/ic_bulet3" />
 
         <TextView
             android:id="@+id/tv_inputdata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/img_register1"
+            android:layout_below="@id/img_register3"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="-25dp"
             android:text="@string/input_your_data"
