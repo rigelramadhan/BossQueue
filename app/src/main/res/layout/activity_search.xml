@@ -10,7 +10,7 @@
         android:id="@+id/layout_search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/dr_background_orange1">
+        android:background="@drawable/rectangle_layout_search">
 
         <EditText
             android:id="@+id/et_search"
