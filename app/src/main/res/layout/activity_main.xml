@@ -43,7 +43,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/img_search_bar"
         app:layout_constraintStart_toStartOf="@+id/img_search_bar"
         app:layout_constraintTop_toTopOf="@+id/img_search_bar"
-        app:srcCompat="@drawable/ic_search_orange" />
+        app:srcCompat="@drawable/ic_search_icon" />
 
     <TextView
         android:id="@+id/tv_search"
