@@ -34,6 +34,8 @@
                 <ImageView
                     android:id="@+id/img_nearyou"
                     android:src="@color/purple_700"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
