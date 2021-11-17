@@ -24,17 +24,16 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="-20dp"
+            android:layout_marginLeft="-30dp"
             android:layout_toRightOf="@id/img_gradient"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_register2" />
+            android:src="@drawable/img_register1" />
 
         <ImageView
             android:id="@+id/img_gradient"
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="-20dp"
             android:layout_toRightOf="@id/tv_placename"
             android:src="@drawable/orange2_gradient" />
 
@@ -51,12 +50,8 @@
             android:textStyle="bold" />
 
 
-
-
-
-
-
     </RelativeLayout>
+
 
     </androidx.cardview.widget.CardView>
 
