@@ -149,7 +149,7 @@
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:layout_marginTop="3dp"
-            android:src="@drawable/shape_circle_taskbar"
+            android:src="@drawable/round_orange1_taskbar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_activity"
             app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +213,7 @@
         android:id="@+id/img_circle_taskbar"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/shape_circle_taskbar"
+        android:src="@drawable/round_orange1_taskbar"
         android:layout_marginBottom="14dp"
         android:layout_width="64dp"
         android:layout_height="64dp"/>

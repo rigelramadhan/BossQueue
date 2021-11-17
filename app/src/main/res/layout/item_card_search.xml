@@ -70,7 +70,7 @@
                 android:id="@+id/layout_details"
                 android:layout_below="@id/tv_search_place"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/shape_rectangle_details"
+                android:background="@drawable/rectangle_layout_details"
                 android:layout_marginBottom="5dp"
                 android:layout_width="110dp"
                 android:layout_height="20dp">

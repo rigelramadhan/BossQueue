@@ -68,29 +68,29 @@
 
             <RelativeLayout
                 android:id="@+id/layout_details"
+                android:layout_width="110dp"
+                android:layout_height="20dp"
                 android:layout_below="@id/tv_hotnow_place"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/shape_rectangle_details"
                 android:layout_marginBottom="5dp"
-                android:layout_width="110dp"
-                android:layout_height="20dp">
+                android:background="@drawable/rectangle_layout_details">
 
                 <TextView
                     android:id="@+id/tv_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="details"
-                    android:textSize="10dp"
                     android:textColor="@color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:textSize="10dp" />
 
                 <ImageView
-                    android:src="@drawable/icon_arrow_kanan_oren"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/icon_arrow_kanan_oren" />
 
             </RelativeLayout>
 
