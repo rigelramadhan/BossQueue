@@ -28,6 +28,7 @@
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_qr.xml" value="0.28307692307692306" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_search_icon.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_search_orange.xml" value="0.24166666666666667" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/ic_star.xml" value="0.28307692307692306" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/icon_account.xml" value="0.28307692307692306" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/icon_arrow_kanan_oren.xml" value="0.28307692307692306" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/drawable/icon_arrow_kanan_putih.xml" value="0.28307692307692306" />
@@ -58,7 +59,7 @@
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_register1.xml" value="0.2" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_register2.xml" value="0.264" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_register3.xml" value="0.2" />
-        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_search.xml" value="0.264" />
+        <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/activity_search.xml" value="0.2" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/item_card_findplace.xml" value="0.264" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/item_card_hotnow.xml" value="0.264" />
         <entry key="..\:/Users/Hewlett Packard/AndroidStudioProjects/BossQueue-DFP/app/src/main/res/layout/item_card_lastplace.xml" value="0.264" />

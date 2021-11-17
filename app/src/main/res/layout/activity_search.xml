@@ -37,4 +37,22 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/item_card_search"/>
 
+    <ImageView
+        android:id="@+id/img_avatar2"
+        android:layout_width="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/img_avatar2" />
+
+    <ImageView
+        android:id="@+id/img_star"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/img_star"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>
