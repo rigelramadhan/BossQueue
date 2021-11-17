@@ -41,67 +41,101 @@
             android:layout_height="wrap_content"/>
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tv_findplace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ScrollView
+        android:id="@+id/sv_main"
         android:layout_below="@id/img_bossque"
-        android:layout_marginLeft="20dp"
+        android:layout_above="@id/layout_taskbar"
         android:layout_marginTop="20dp"
-        android:text="@string/find_your_place_order"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_findplace"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_findplace"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_card_findplace" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_hotnow"
-        android:layout_below="@id/rv_findplace"
-        android:text="@string/HOT_NOW"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_hotnow"
-        android:layout_below="@id/tv_hotnow"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/item_card_hotnow"/>
+            <TextView
+                android:id="@+id/tv_findplace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/find_your_place_order"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/tv_nearyou"
-        android:layout_below="@id/rv_hotnow"
-        android:text="@string/NEAR_YOU"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        android:layout_marginLeft="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_findplace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_findplace"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_card_findplace" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_nearyou"
-        android:layout_below="@id/tv_nearyou"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/item_card_nearyou"/>
+            <TextView
+                android:id="@+id/tv_hotnow"
+                android:layout_below="@id/rv_findplace"
+                android:text="@string/HOT_NOW"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_hotnow"
+                android:layout_below="@id/tv_hotnow"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_card_hotnow"/>
+
+            <TextView
+                android:id="@+id/tv_nearyou"
+                android:layout_below="@id/rv_hotnow"
+                android:text="@string/NEAR_YOU"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_nearyou"
+                android:layout_below="@id/tv_nearyou"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_card_nearyou"/>
+
+            <TextView
+                android:id="@+id/tv_lastplace"
+                android:layout_below="@id/rv_nearyou"
+                android:text="@string/LAST_PLACE"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_lastplace"
+                android:layout_below="@id/tv_lastplace"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_card_lastplace"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -112,36 +146,55 @@
         android:background="@color/white">
 
         <ImageView
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/shape_circle_taskbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_activity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
             android:id="@+id/img_home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_home"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_activity"
-            app:layout_constraintHorizontal_bias="0.523"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.514" />
 
         <ImageView
             android:id="@+id/img_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="50dp"
             android:src="@drawable/ic_activity"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img_payment"
+            app:layout_constraintEnd_toStartOf="@+id/img_qr_tes"
             app:layout_constraintStart_toEndOf="@+id/img_home"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_qr_tes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_qr"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/img_payment"
+            app:layout_constraintStart_toEndOf="@+id/img_activity"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/img_payment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
             android:src="@drawable/ic_payment"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_profile"
-            app:layout_constraintStart_toEndOf="@+id/img_activity"
+            app:layout_constraintStart_toEndOf="@+id/img_qr_tes"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
