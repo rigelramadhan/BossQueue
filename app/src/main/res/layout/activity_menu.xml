@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_1">
+
+    <RelativeLayout
+        android:id="@+id/layout_img_menu"
+        android:layout_width="match_parent"
+        android:layout_height="280dp">
+
+        <ImageView
+            android:id="@+id/img_place"
+            android:src="@drawable/img_tes"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/gradient_black"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_back"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/rectangle_layout_back" >
+
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_arrow_kiri_putih" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_placename"
+            android:text="Hause Rooftop"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:id="@+id/layout_circle_zoom"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/round_white_background">
+
+            <ImageView
+                android:id="@+id/img_zoom"
+                android:src="@drawable/ic_zoom"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_menu"
+        android:layout_below="@id/layout_img_menu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_layout_myactivity">
+
+        <TextView
+            android:id="@+id/tv_menu"
+            android:text="@string/menu"
+            android:textColor="@color/white"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_all"
+        android:layout_below="@id/layout_menu"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="80"
+        android:layout_height="35dp"
+        android:background="@drawable/rectangle_layout_menulist">
+
+        <TextView
+            android:id="@+id/tv_all"
+            android:text="@string/all"
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

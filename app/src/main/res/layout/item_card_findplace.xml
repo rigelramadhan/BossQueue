@@ -35,7 +35,7 @@
             android:layout_width="30dp"
             android:layout_height="match_parent"
             android:layout_toRightOf="@id/tv_placename"
-            android:src="@drawable/orange2_gradient" />
+            android:src="@drawable/gradient_orange2" />
 
         <TextView
             android:id="@+id/tv_placename"

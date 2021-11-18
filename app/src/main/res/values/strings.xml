@@ -18,4 +18,6 @@
     <string name="My_Activity">My Activity</string>
     <string name="activities">activities</string>
     <string name="history">history</string>
+    <string name="menu">menu</string>
+    <string name="all">all</string>
 </resources>
