@@ -15,4 +15,7 @@
     <string name="HOT_NOW">HOT NOW</string>
     <string name="NEAR_YOU">NEAR YOU</string>
     <string name="LAST_PLACE">LAST PLACE</string>
+    <string name="My_Activity">My Activity</string>
+    <string name="activities">activities</string>
+    <string name="history">history</string>
 </resources>
