@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white_1">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="15dp"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="2dp"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <RelativeLayout
+            android:layout_width="130dp"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_food2"
+                android:layout_margin="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardCornerRadius="15dp">
+
+                <ImageView
+                    android:id="@+id/img_food"
+                    android:src="@drawable/img_tes"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <RelativeLayout
+                    android:id="@+id/layout_backgroud_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:background="@drawable/rectangle_layout_food_klik">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_details"
+                        android:layout_centerInParent="true"
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rectangle_layout_details">
+
+                        <TextView
+                            android:id="@+id/tv_details"
+                            android:text="@string/details"
+                            android:textColor="@color/white"
+                            android:textSize="11dp"
+                            android:layout_marginVertical="3dp"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_food_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cv_food2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="quiona buddha bowl"
+                android:textColor="@color/orange_2"
+                android:textSize="11dp" />
+
+            <RelativeLayout
+                android:id="@+id/layout_add"
+                android:layout_below="@id/tv_food_name"
+                android:layout_centerHorizontal="true"
+                android:layout_marginVertical="5dp"
+                android:layout_width="55dp"
+                android:layout_height="17dp"
+                android:background="@drawable/rectangle_layout_menulist">
+
+                <ImageView
+                    android:id="@+id/img_add"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_add"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_add"
+                    android:layout_toRightOf="@id/img_add"
+                    android:text="@string/add"
+                    android:textSize="11dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="7dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

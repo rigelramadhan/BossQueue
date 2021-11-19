@@ -20,4 +20,9 @@
     <string name="history">history</string>
     <string name="menu">menu</string>
     <string name="all">all</string>
+    <string name="food">food</string>
+    <string name="drink">drink</string>
+    <string name="basket">basket</string>
+    <string name="add">add</string>
+    <string name="details">details</string>
 </resources>

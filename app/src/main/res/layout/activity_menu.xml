@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white_1">
 
     <RelativeLayout
@@ -94,18 +96,169 @@
 
     <RelativeLayout
         android:id="@+id/layout_all"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
         android:layout_below="@id/layout_menu"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
-        android:layout_width="80dp"
-        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/rectangle_layout_menulist">
+
+        <ImageView
+            android:id="@+id/img_all"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="17dp"
+            android:src="@drawable/ic_all" />
 
         <TextView
             android:id="@+id/tv_all"
-            android:text="@string/all"
-            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/img_all"
+            android:text="@string/all"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_food"
+        android:layout_below="@id/layout_menu"
+        android:layout_toRightOf="@id/layout_all"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle_layout_border_menu">
+
+            <ImageView
+                android:id="@+id/img_food"
+                android:src="@drawable/ic_food"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="13dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+
+            <TextView
+                android:id="@+id/tv_food"
+                android:layout_toRightOf="@id/img_food"
+                android:text="@string/food"
+                android:textColor="@color/black"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_drink"
+        android:layout_below="@id/layout_menu"
+        android:layout_toRightOf="@id/layout_food"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rectangle_layout_border_menu">
+
+        <ImageView
+            android:id="@+id/img_drink"
+            android:src="@drawable/ic_drink"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="12dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_drink"
+            android:layout_toRightOf="@id/img_drink"
+            android:text="@string/drink"
+            android:textColor="@color/black"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/sv_menu"
+        android:layout_below="@id/layout_all"
+        android:layout_above="@id/layout_basket"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/layout_sv_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_food2"
+                android:text="@string/food"
+                android:textColor="@color/brown_2"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_food2"
+                android:layout_below="@id/tv_food2"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_card_food"/>
+
+            <TextView
+                android:id="@+id/tv_drink2"
+                android:layout_below="@id/rv_food2"
+                android:text="@string/drink"
+                android:textColor="@color/brown_2"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"
+                android:textSize="18dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_drink2"
+                android:layout_below="@id/tv_drink2"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_card_drink"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+    
+    <RelativeLayout
+        android:id="@+id/layout_basket"
+        android:layout_alignParentBottom="true"
+        android:elevation="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="130dp"
+        android:layout_height="28dp"
+        android:background="@drawable/rectangle_layout_menulist">
+
+        <TextView
+            android:id="@+id/tv_basket"
+            android:drawableLeft="@drawable/ic_basket"
+            android:drawablePadding="5dp"
+            android:text="@string/basket"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
