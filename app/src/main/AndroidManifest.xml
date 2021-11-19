@@ -10,15 +10,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BossQueue">
         <activity
+            android:name=".view.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ActivitiesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterActivity1"
+            android:exported="false" />
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.BeforeLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity2"
+            android:exported="false" />
+        <activity
             android:name=".view.MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
     </application>
 
