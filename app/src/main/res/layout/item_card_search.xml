@@ -10,7 +10,8 @@
         android:id="@+id/cv_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/white"
@@ -49,15 +50,15 @@
                 android:layout_centerHorizontal="true"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Starbucks Mampang"
+                android:text="@string/place_name"
                 android:textColor="@color/orange_2"
-                android:textSize="13dp" />
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/tv_search_place"
                 android:layout_below="@id/tv_search_name"
-                android:text="Jakarta, Indonesia"
-                android:textSize="11dp"
+                android:text="@string/place_location"
+                android:textSize="11sp"
                 android:textColor="@color/black"
                 android:layout_centerHorizontal="true"
                 android:ellipsize="end"
@@ -78,8 +79,8 @@
                 <TextView
                     android:id="@+id/tv_details"
                     android:layout_centerInParent="true"
-                    android:text="details"
-                    android:textSize="10dp"
+                    android:text="@string/details"
+                    android:textSize="10sp"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -87,8 +88,8 @@
                 <ImageView
                     android:src="@drawable/icon_arrow_kanan_oren"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

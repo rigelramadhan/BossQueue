@@ -25,4 +25,7 @@
     <string name="basket">basket</string>
     <string name="add">add</string>
     <string name="details">details</string>
+    <string name="place_name">Place Name</string>
+    <string name="place_location">Place location</string>
+    <string name="details">details</string>
 </resources>

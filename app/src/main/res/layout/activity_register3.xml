@@ -35,7 +35,7 @@
             android:layout_height="25dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/rectangle_layout_back" >
+            android:background="@drawable/rectangle_layout_back">
 
             <ImageView
                 android:id="@+id/img_back"
@@ -88,9 +88,9 @@
 
         <TextView
             android:id="@+id/tv_name"
-            android:layout_below="@id/tv_inputdata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/tv_inputdata"
             android:layout_marginLeft="30dp"
             android:text="name"
             android:textColor="@color/white_2"
@@ -109,14 +109,14 @@
 
         <TextView
             android:id="@+id/tv_email"
-            android:layout_below="@id/et_name"
-            android:text="email"
-            android:textSize="18dp"
-            android:textColor="@color/white_2"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_name"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:text="email"
+            android:textColor="@color/white_2"
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/et_email"
@@ -132,14 +132,14 @@
 
         <TextView
             android:id="@+id/tv_password"
-            android:layout_below="@id/et_email"
-            android:text="password"
-            android:textSize="18dp"
-            android:textColor="@color/white_2"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_email"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="5dp"
+            android:text="password"
+            android:textColor="@color/white_2"
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/et_password"
