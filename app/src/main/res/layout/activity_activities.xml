@@ -57,6 +57,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_activities"
+        android:layout_below="@id/layout_activities"
+        android:layout_marginTop="10dp"
+        tools:listitem="@layout/item_card_activities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_taskbar"
@@ -132,12 +139,12 @@
 
     <ImageView
         android:id="@+id/img_circle_taskbar"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/round_orange1_taskbar"
-        android:layout_marginBottom="14dp"
         android:layout_width="64dp"
-        android:layout_height="64dp"/>
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:src="@drawable/round_orange1_taskbar" />
 
     <ImageView
         android:id="@+id/img_qr"

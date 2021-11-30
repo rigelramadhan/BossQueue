@@ -165,7 +165,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/button_background"
-        android:text="create"
+        android:text="@string/create"
         android:textColor="@color/orange_1"
         app:backgroundTint="@color/brown_1"
         tools:ignore="TouchTargetSizeCheck" />
