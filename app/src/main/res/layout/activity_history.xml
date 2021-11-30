@@ -58,12 +58,12 @@
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_activities"
+        android:id="@+id/rv_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/layout_history"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/item_card_history"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        tools:listitem="@layout/item_card_history" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
