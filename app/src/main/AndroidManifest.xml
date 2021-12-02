@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BossQueue">
         <activity
+            android:name=".view.BasketActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.MainNavActivity"
             android:exported="true"
             android:label="@string/title_activity_main_nav">
