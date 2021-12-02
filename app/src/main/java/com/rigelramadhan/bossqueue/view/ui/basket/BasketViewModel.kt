@@ -20,5 +20,5 @@ class BasketViewModel(private val userId: Int) {
         }
     }
 
-    private fun getFoods() = foods
+    fun getFoods() = foods
 }
