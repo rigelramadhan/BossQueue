@@ -91,7 +91,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_card_hotnow"/>
+                tools:listitem="@layout/item_card_place"/>
 
             <TextView
                 android:id="@+id/tv_nearyou"
@@ -111,7 +111,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_card_nearyou"/>
+                tools:listitem="@layout/item_card_place"/>
 
             <TextView
                 android:id="@+id/tv_lastplace"
@@ -131,7 +131,7 @@
                 android:layout_below="@id/tv_lastplace"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_card_lastplace" />
+                tools:listitem="@layout/item_card_place" />
 
         </RelativeLayout>
 

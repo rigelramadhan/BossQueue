@@ -37,4 +37,6 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="payment">Payment</string>
+    <string name="description_place_image">Place image</string>
+    <string name="description_orange_arrow">Orange arrow</string>
 </resources>
