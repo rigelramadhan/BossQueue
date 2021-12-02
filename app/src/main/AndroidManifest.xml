@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BossQueue">
         <activity
-            android:name=".view.BasketActivity"
+            android:name=".view.ui.basket.BasketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.menu.MenuActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainNavActivity"
@@ -22,9 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.MenuActivity"
-            android:exported="false" />
         <activity
             android:name=".view.HistoryActivity"
             android:exported="false" />

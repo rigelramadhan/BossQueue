@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white_1">
+    android:background="@color/white_1"
+    tools:context=".view.ui.menu.MenuActivity">
 
     <RelativeLayout
         android:id="@+id/layout_img_menu"
@@ -28,7 +29,7 @@
             android:id="@+id/layout_back"
             android:layout_width="30dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/rectangle_layout_back" >
 
@@ -43,9 +44,9 @@
 
         <TextView
             android:id="@+id/tv_placename"
-            android:text="Hause Rooftop"
+            android:text="@string/place_name"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:layout_marginTop="25dp"
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
@@ -56,9 +57,9 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginBottom="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/round_white_background">
 
             <ImageView
@@ -82,7 +83,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/layout_menu"
@@ -96,7 +97,7 @@
                     android:id="@+id/tv_menu"
                     android:text="@string/menu"
                     android:textColor="@color/white"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginBottom="3dp"
@@ -105,102 +106,13 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/layout_all"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/layout_menu"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rectangle_layout_menulist">
-
-                <ImageView
-                    android:id="@+id/img_all"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="17dp"
-                    android:src="@drawable/ic_all" />
-
-                <TextView
-                    android:id="@+id/tv_all"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/img_all"
-                    android:text="@string/all"
-                    android:textColor="@color/white" />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout_food"
-                android:layout_below="@id/layout_menu"
-                android:layout_toRightOf="@id/layout_all"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:background="@drawable/rectangle_layout_border_menu">
-
-                <ImageView
-                    android:id="@+id/img_food"
-                    android:src="@drawable/ic_food"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="13dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"/>
-
-                <TextView
-                    android:id="@+id/tv_food"
-                    android:layout_toRightOf="@id/img_food"
-                    android:text="@string/food"
-                    android:textColor="@color/black"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout_drink"
-                android:layout_below="@id/layout_menu"
-                android:layout_toRightOf="@id/layout_food"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:background="@drawable/rectangle_layout_border_menu">
-
-                <ImageView
-                    android:id="@+id/img_drink"
-                    android:src="@drawable/ic_drink"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"/>
-
-                <TextView
-                    android:id="@+id/tv_drink"
-                    android:layout_toRightOf="@id/img_drink"
-                    android:text="@string/drink"
-                    android:textColor="@color/black"
-                    android:layout_centerVertical="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </RelativeLayout>
-
             <TextView
                 android:id="@+id/tv_food2"
-                android:layout_below="@id/layout_all"
+                android:layout_below="@id/layout_menu"
                 android:text="@string/food"
                 android:textColor="@color/brown_2"
-                android:layout_marginLeft="20dp"
-                android:textSize="18dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="15dp"
@@ -222,8 +134,8 @@
                 android:text="@string/drink"
                 android:textColor="@color/brown_2"
                 android:textStyle="bold"
-                android:layout_marginLeft="20dp"
-                android:textSize="18dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
                 android:layout_marginBottom="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -253,13 +165,13 @@
 
         <TextView
             android:id="@+id/tv_basket"
-            android:drawableLeft="@drawable/ic_basket"
             android:drawablePadding="5dp"
             android:text="@string/basket"
             android:textColor="@color/white"
             android:layout_centerInParent="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:drawableLeftCompat="@drawable/ic_basket" />
 
     </RelativeLayout>
 

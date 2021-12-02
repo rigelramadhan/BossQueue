@@ -39,4 +39,5 @@
     <string name="payment">Payment</string>
     <string name="description_place_image">Place image</string>
     <string name="description_orange_arrow">Orange arrow</string>
+    <string name="remove">Remove</string>
 </resources>

@@ -10,12 +10,8 @@ object SampleData {
     )
 
     val categorySampleData = arrayListOf<Category>(
-        Category(1, "Category1", ""),
-        Category(2, "Category2", ""),
-        Category(3, "Category3", ""),
-        Category(4, "Category4", ""),
-        Category(5, "Category5", ""),
-        Category(6, "Category6", ""),
+        Category(1, "Foods", ""),
+        Category(2, "Drinks", "")
     )
 
     val activitySampleData = arrayListOf<Activity>(
@@ -27,14 +23,20 @@ object SampleData {
     )
 
     val foodSampleData = arrayListOf<Food>(
-        Food(1, "Food1", "Ini adalah deskripsi food1", 25600.0, "", 1),
-        Food(2, "Food2", "Ini adalah deskripsi food2", 15600.0, "", 1),
-        Food(3, "Food3", "Ini adalah deskripsi food3", 35600.0, "", 1),
-        Food(4, "Food4", "Ini adalah deskripsi food4", 10600.0, "", 2),
-        Food(5, "Food5", "Ini adalah deskripsi food5", 20600.0, "", 2),
-        Food(6, "Food6", "Ini adalah deskripsi food6", 30600.0, "", 2),
-        Food(7, "Food7", "Ini adalah deskripsi food7", 28600.0, "", 3),
-        Food(8, "Food8", "Ini adalah deskripsi food8", 18600.0, "", 3),
-        Food(9, "Food9", "Ini adalah deskripsi food9", 48600.0, "", 3),
+        Food(1, "Food1", "Ini adalah deskripsi food1", 25600.0, "", 1, 1),
+        Food(2, "Food2", "Ini adalah deskripsi food2", 15600.0, "", 1, 1),
+        Food(3, "Food3", "Ini adalah deskripsi food3", 35600.0, "", 2, 1),
+        Food(4, "Food4", "Ini adalah deskripsi food4", 10600.0, "", 1, 2),
+        Food(5, "Food5", "Ini adalah deskripsi food5", 20600.0, "", 2, 2),
+        Food(6, "Food6", "Ini adalah deskripsi food6", 30600.0, "", 2, 2),
+        Food(7, "Food7", "Ini adalah deskripsi food7", 28600.0, "", 2, 3),
+        Food(8, "Food8", "Ini adalah deskripsi food8", 18600.0, "", 1, 3),
+        Food(9, "Food9", "Ini adalah deskripsi food9", 48600.0, "", 2, 3),
+    )
+
+    val basketSampleData = arrayListOf<Basket>(
+        Basket(1, 1, 2),
+        Basket(2, 1, 1),
+        Basket(3, 1, 1),
     )
 }
