@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white_1">
@@ -9,9 +9,12 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_activities"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginVertical="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="10dp"
         android:background="@color/white">
 
@@ -27,7 +30,7 @@
             app:cardCornerRadius="10dp">
 
             <ImageView
-                android:id="@+id/img_activities"
+                android:id="@+id/img_place"
                 android:src="@drawable/img_tes"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
@@ -37,29 +40,29 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/tv_pending"
-            android:layout_alignParentRight="true"
+            android:id="@+id/tv_status"
+            android:layout_alignParentEnd="true"
             android:text="@string/pending"
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@color/red"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
         <TextView
             android:id="@+id/tv_activities_name"
-            android:layout_below="@id/tv_pending"
-            android:layout_toRightOf="@id/cv_activities2"
-            android:layout_toLeftOf="@id/layout_pay"
+            android:layout_below="@id/tv_status"
+            android:layout_toEndOf="@id/cv_activities2"
+            android:layout_toStartOf="@id/layout_pay"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Hause Rooftop"
-            android:textSize="15dp"
+            android:text="@string/place_name"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:textColor="@color/orange_2"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
@@ -67,8 +70,8 @@
         <TextView
             android:id="@+id/tv_Rp"
             android:layout_below="@id/tv_activities_name"
-            android:layout_toRightOf="@id/cv_activities2"
-            android:layout_marginLeft="15dp"
+            android:layout_toEndOf="@id/cv_activities2"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="10dp"
             android:text="Rp."
             android:textColor="@color/black"
@@ -77,12 +80,12 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/tv_activities_price"
+            android:id="@+id/tv_bill"
             android:layout_below="@id/tv_activities_name"
-            android:layout_toRightOf="@id/tv_Rp"
-            android:layout_toLeftOf="@id/layout_pay"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@id/tv_Rp"
+            android:layout_toStartOf="@id/layout_pay"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:maxLines="1"
@@ -95,8 +98,8 @@
         <RelativeLayout
             android:id="@+id/layout_pay"
             android:layout_below="@id/tv_activities_name"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="8dp"
             android:layout_width="75dp"
             android:layout_height="25dp"
@@ -107,7 +110,7 @@
                 android:layout_centerInParent="true"
                 android:text="@string/pay"
                 android:textColor="@color/white"
-                android:textSize="12dp"
+                android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

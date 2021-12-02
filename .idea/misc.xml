@@ -96,7 +96,10 @@
         <entry key="app/src/main/res/drawable/dr_button_brown1_orange1.xml" value="0.2722222222222222" />
         <entry key="app/src/main/res/drawable/dr_edit_text_black.xml" value="0.2722222222222222" />
         <entry key="app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2671875" />
+        <entry key="app/src/main/res/drawable/ic_food.xml" value="0.3703125" />
+        <entry key="app/src/main/res/drawable/ic_home.xml" value="0.3703125" />
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2671875" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3703125" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2671875" />
         <entry key="app/src/main/res/drawable/tab_color.xml" value="0.2671875" />
         <entry key="app/src/main/res/layout/activity_activities.xml" value="0.25104166666666666" />
@@ -119,11 +122,12 @@
         <entry key="app/src/main/res/layout/item_card_activities.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/item_card_drink.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/item_card_findplace.xml" value="0.19427083333333334" />
-        <entry key="app/src/main/res/layout/item_card_food.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/item_card_food.xml" value="0.67" />
         <entry key="app/src/main/res/layout/item_card_history.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/item_card_hotnow.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/item_card_lastplace.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/item_card_nearyou.xml" value="0.19427083333333334" />
+        <entry key="app/src/main/res/layout/item_card_place.xml" value="0.3541666666666667" />
         <entry key="app/src/main/res/layout/item_card_search.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_desired_place.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.25104166666666666" />

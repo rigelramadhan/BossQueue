@@ -13,6 +13,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/white"
+        android:foreground="?android:attr/selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="15dp"
@@ -55,13 +56,13 @@
 
                         <TextView
                             android:id="@+id/tv_details"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="3dp"
                             android:text="@string/details"
                             android:textColor="@color/white"
-                            android:textSize="11dp"
-                            android:layout_marginVertical="3dp"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="11sp" />
 
                     </RelativeLayout>
 
@@ -78,9 +79,9 @@
                 android:layout_marginTop="3dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="quiona buddha bowl"
+                android:text="@string/food"
                 android:textColor="@color/orange_2"
-                android:textSize="11dp" />
+                android:textSize="11sp" />
 
             <RelativeLayout
                 android:id="@+id/layout_add"
@@ -95,17 +96,17 @@
                     android:id="@+id/img_add"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_add"
-                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
                     android:layout_width="8dp"
                     android:layout_height="8dp"/>
 
                 <TextView
                     android:id="@+id/tv_add"
-                    android:layout_toRightOf="@id/img_add"
+                    android:layout_toEndOf="@id/img_add"
                     android:text="@string/add"
-                    android:textSize="11dp"
+                    android:textSize="11sp"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="7dp"
+                    android:layout_marginStart="7dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
