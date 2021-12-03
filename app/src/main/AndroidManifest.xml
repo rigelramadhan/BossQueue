@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BossQueue">
         <activity
+            android:name=".view.ui.auth.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ui.auth.LoginActivity"
+            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".view.MidtransActivity"-->
+<!--            android:exported="false" />-->
+        <activity
             android:name=".view.ui.basket.BasketActivity"
             android:exported="false" />
         <activity
@@ -30,12 +39,6 @@
             android:exported="false" />
         <activity
             android:name=".view.SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".view.BeforeLoginActivity"

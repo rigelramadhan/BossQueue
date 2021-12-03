@@ -9,12 +9,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rigelramadhan.bossqueue.adapter.CategoryAdapter
 import com.rigelramadhan.bossqueue.adapter.PlaceAdapter
+import com.rigelramadhan.bossqueue.controller.PlaceController
 import com.rigelramadhan.bossqueue.databinding.FragmentHomeBinding
+import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.SampleData
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var placeController: PlaceController
+    private lateinit var places: List<Place>
     private var _binding: FragmentHomeBinding? = null
 
     private val binding get() = _binding!!
@@ -29,31 +33,22 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        placeController = PlaceController(binding.root.context)
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        places = placeController.getPlaces()
         binding.rvFindplace.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = CategoryAdapter(SampleData.categorySampleData)
         }
 
-        binding.rvHotnow.apply {
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = PlaceAdapter(view.context, SampleData.placeSampleData)
-        }
-
-        binding.rvNearyou.apply {
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = PlaceAdapter(view.context, SampleData.placeSampleData)
-        }
-
-        binding.rvLastplace.apply {
-            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = PlaceAdapter(view.context, SampleData.placeSampleData)
-        }
+        placeController.configurePlacesRv(binding.rvHotnow, LinearLayoutManager.HORIZONTAL)
+        placeController.configurePlacesRv(binding.rvNearyou, LinearLayoutManager.HORIZONTAL)
+        placeController.configurePlacesRv(binding.rvLastplace, LinearLayoutManager.HORIZONTAL)
     }
 
     override fun onDestroyView() {

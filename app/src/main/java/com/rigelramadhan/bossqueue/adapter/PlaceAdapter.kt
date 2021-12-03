@@ -23,12 +23,15 @@ class PlaceAdapter(private val context: Context, private val places: List<Place>
 
         holder.binding.tvPlaceName.text = place.name
         holder.binding.tvPlaceLocation.text = place.location
+
+
+
         holder.binding.imgPlace.setImageDrawable(context.getDrawable(R.drawable.img_tes))
 
         holder.binding.cvPlace.setOnClickListener {
-            val intent = Intent(context, MenuActivity::class.java)
-            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, place.id)
-            context.startActivity(intent)
+//            val intent = Intent(context, MenuActivity::class.java)
+//            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, place.id)
+//            context.startActivity(intent)
         }
     }
 

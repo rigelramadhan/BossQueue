@@ -2,11 +2,11 @@ package com.rigelramadhan.bossqueue.model
 
 object SampleData {
     val placeSampleData = arrayListOf<Place>(
-        Place(1, "Hause Rooftop", "Malang", "Hause Rooftop adalah sebuah tempat aestetik yang memberikan pengalaman yang menyegarkan", true, ""),
-        Place(2, "Tempat Kedua", "Malang", "deskripsi2", true, ""),
-        Place(3, "Tempat Ketiga", "Malang", "deskripsi3", true, ""),
-        Place(4, "Tempat Keempat", "Malang", "deskripsi4", true, ""),
-        Place(5, "Tempat Kelima", "Malang", "deskripsi5", true, ""),
+        Place("Hause Rooftop", "Malang", "Hause Rooftop adalah sebuah tempat aestetik yang memberikan pengalaman yang menyegarkan", true, ""),
+        Place("Tempat Kedua", "Malang", "deskripsi2", true, ""),
+        Place("Tempat Ketiga", "Malang", "deskripsi3", true, ""),
+        Place("Tempat Keempat", "Malang", "deskripsi4", true, ""),
+        Place("Tempat Kelima", "Malang", "deskripsi5", true, ""),
     )
 
     val categorySampleData = arrayListOf<Category>(

@@ -1,33 +1,42 @@
 {
   "project_info": {
-    "project_number": "126123913125",
-    "project_id": "bossqueue-f2bf3",
-    "storage_bucket": "bossqueue-f2bf3.appspot.com"
+    "project_number": "446763317830",
+    "firebase_url": "https://bossqueue-c992e-default-rtdb.firebaseio.com",
+    "project_id": "bossqueue-c992e",
+    "storage_bucket": "bossqueue-c992e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:126123913125:android:4658a50d1690fb0cef024c",
+        "mobilesdk_app_id": "1:446763317830:android:83f335188ee9b5825e2847",
         "android_client_info": {
           "package_name": "com.rigelramadhan.bossqueue"
         }
       },
       "oauth_client": [
         {
-          "client_id": "126123913125-ougik0egdl2u3c770shpv5bqe7lddajr.apps.googleusercontent.com",
+          "client_id": "446763317830-sb7l396v22bn621vetn73eb1ka383kgt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rigelramadhan.bossqueue",
+            "certificate_hash": "05fc5738f5a2adbe2ad2f2c1efb549487662d0f7"
+          }
+        },
+        {
+          "client_id": "446763317830-be3mmc81r5hnnvtd9ftlepbh8cglsqht.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC7RVk5YfLzrby6QrXdHcNBLn5nBQKAJlY"
+          "current_key": "AIzaSyDxnFRiProcgJCAt2NetDQG1o0dikS31gY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "126123913125-ougik0egdl2u3c770shpv5bqe7lddajr.apps.googleusercontent.com",
+              "client_id": "446763317830-be3mmc81r5hnnvtd9ftlepbh8cglsqht.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

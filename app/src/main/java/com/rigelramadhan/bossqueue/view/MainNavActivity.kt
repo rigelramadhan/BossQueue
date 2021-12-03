@@ -9,11 +9,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.rigelramadhan.bossqueue.R
+import com.rigelramadhan.bossqueue.controller.AuthController
+import com.rigelramadhan.bossqueue.controller.PlaceController
 import com.rigelramadhan.bossqueue.databinding.ActivityMainNavBinding
 
 class MainNavActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainNavBinding
+    private lateinit var authController: AuthController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +25,7 @@ class MainNavActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
+        authController = AuthController(this)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main_nav) as NavHostFragment
@@ -30,5 +34,10 @@ class MainNavActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
 
         navView.setupWithNavController(navController)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        authController.checkIfUserSignedIn()
     }
 }
