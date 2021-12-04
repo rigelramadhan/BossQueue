@@ -23,19 +23,19 @@
         tools:ignore="SpeakableTextPresentCheck">
 
         <RelativeLayout
-            android:layout_width="160dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_image"
                 android:layout_margin="5dp"
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="100dp"
                 app:cardCornerRadius="20dp">
 
                 <ImageView
                     android:id="@+id/img_place"
-                    android:src="@color/teal_200"
+                    android:src="@drawable/placeholder_place"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:layout_width="match_parent"

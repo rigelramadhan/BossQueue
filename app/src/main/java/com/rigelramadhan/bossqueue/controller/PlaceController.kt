@@ -13,11 +13,12 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.adapter.PlaceAdapter
 import com.rigelramadhan.bossqueue.model.Place
+import com.rigelramadhan.bossqueue.model.User
 
-class PlaceController(private val context: Context) {
+class PlaceController(private val activity: AppCompatActivity) {
     private var auth: FirebaseAuth = Firebase.auth
     private var database: DatabaseReference = Firebase.database.reference
-    private val places = mutableListOf<Place>()
+    private var places = mutableListOf<Place>()
 
     companion object {
         private val TAG = PlaceController::class.java.simpleName
@@ -35,18 +36,20 @@ class PlaceController(private val context: Context) {
         checkPlaces.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
+                    val tempPlaces = mutableListOf<Place>()
                     for (dataSnapshot in snapshot.children) {
                         val place = dataSnapshot.getValue<Place>()
                         Log.d(TAG, place.toString())
                         if (place != null) {
-                            places.add(place)
+                            tempPlaces.add(place)
                         } else {
                             Log.d(TAG, "PLACE NULL")
                         }
                     }
-
+                    Log.d(TAG, tempPlaces.toString())
+                    places = tempPlaces
                     rv.apply {
-                        adapter = PlaceAdapter(context, places)
+                        adapter = PlaceAdapter(activity, places)
                         layoutManager = LinearLayoutManager(context, orientation, false)
                     }
                 }
@@ -54,6 +57,63 @@ class PlaceController(private val context: Context) {
 
             override fun onCancelled(error: DatabaseError) {}
         })
+    }
+    public fun configureNearPlacesRv(rv: RecyclerView, orientation: Int) {
+        val checkPlaces = Firebase.database.getReference("places")
+        val userData = Firebase.database.getReference("users").child(auth.uid.toString())
+        var user = User()
+
+        userData.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                user = snapshot.getValue<User>()!!
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
+        checkPlaces.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    val tempPlaces = mutableListOf<Place>()
+                    for (dataSnapshot in snapshot.children) {
+                        val place = dataSnapshot.getValue<Place>()
+                        Log.d(TAG, place.toString())
+                        if (place != null) {
+                            if (place.location.equals(user.location)) tempPlaces.add(place)
+                        } else {
+                            Log.d(TAG, "PLACE NULL")
+                        }
+                    }
+                    Log.d(TAG, tempPlaces.toString())
+                    places = tempPlaces
+                    rv.apply {
+                        adapter = PlaceAdapter(activity, places)
+                        layoutManager = LinearLayoutManager(context, orientation, false)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
+
+    public fun getParent(name: String): String {
+        val checkPlaces = Firebase.database.getReference("places")
+        var key = ""
+        checkPlaces.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (data in snapshot.children) {
+                    if (data.child("name").toString().equals(name, true)) {
+                        key = data.key.toString()
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+
+        })
+
+        return key
     }
 
     public fun getPlaces() = places

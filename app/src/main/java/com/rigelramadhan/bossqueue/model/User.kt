@@ -1,8 +1,8 @@
 package com.rigelramadhan.bossqueue.model
 
 data class User(
-    val name: String,
-    val email: String,
-    val password: String,
-    val location: String
+    val name: String? = null,
+    val email: String? = null,
+    val password: String? = null,
+    val location: String? = null
 )

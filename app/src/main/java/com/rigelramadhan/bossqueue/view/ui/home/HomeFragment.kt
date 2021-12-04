@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,13 +34,8 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        placeController = PlaceController(binding.root.context)
+        placeController = PlaceController(activity as AppCompatActivity)
 
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         places = placeController.getPlaces()
         binding.rvFindplace.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
@@ -47,8 +43,14 @@ class HomeFragment : Fragment() {
         }
 
         placeController.configurePlacesRv(binding.rvHotnow, LinearLayoutManager.HORIZONTAL)
-        placeController.configurePlacesRv(binding.rvNearyou, LinearLayoutManager.HORIZONTAL)
+        placeController.configureNearPlacesRv(binding.rvNearyou, LinearLayoutManager.HORIZONTAL)
         placeController.configurePlacesRv(binding.rvLastplace, LinearLayoutManager.HORIZONTAL)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {

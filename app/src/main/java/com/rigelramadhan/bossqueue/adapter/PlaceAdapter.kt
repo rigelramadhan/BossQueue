@@ -4,14 +4,21 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.storage.FirebaseStorage
 import com.rigelramadhan.bossqueue.R
+import com.rigelramadhan.bossqueue.controller.PlaceController
 import com.rigelramadhan.bossqueue.databinding.ItemCardPlaceBinding
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.view.ui.menu.MenuActivity
 
-class PlaceAdapter(private val context: Context, private val places: List<Place>) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
+class PlaceAdapter(private val activity: AppCompatActivity, private val places: List<Place>) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
     class ViewHolder(var binding: ItemCardPlaceBinding): RecyclerView.ViewHolder(binding.root)
+
+    private val placeController = PlaceController(activity)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemCardPlaceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -24,14 +31,22 @@ class PlaceAdapter(private val context: Context, private val places: List<Place>
         holder.binding.tvPlaceName.text = place.name
         holder.binding.tvPlaceLocation.text = place.location
 
+        val storage = FirebaseStorage.getInstance()
+        val gsRef = storage.getReferenceFromUrl(place.picture!!)
 
-
-        holder.binding.imgPlace.setImageDrawable(context.getDrawable(R.drawable.img_tes))
+        gsRef.downloadUrl.addOnSuccessListener {
+            if (!activity.isFinishing) {
+                Glide.with(holder.itemView.context)
+                    .load(it)
+                    .apply(RequestOptions().override(150, 100))
+                    .into(holder.binding.imgPlace)
+            }
+        }
 
         holder.binding.cvPlace.setOnClickListener {
-//            val intent = Intent(context, MenuActivity::class.java)
-//            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, place.id)
-//            context.startActivity(intent)
+            val intent = Intent(activity, MenuActivity::class.java)
+            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, placeController.getParent(place.name!!))
+            activity.startActivity(intent)
         }
     }
 

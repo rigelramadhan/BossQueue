@@ -40,4 +40,14 @@
     <string name="description_place_image">Place image</string>
     <string name="description_orange_arrow">Orange arrow</string>
     <string name="remove">Remove</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="gopay">GoPay</string>
+    <string name="shopeepay">ShopeePay</string>
+    <string name="mandiri_virtual_account">Mandiri Virtual Account</string>
+    <string name="bni_virtual_account">BNI Virtual Account</string>
+    <string name="permata_virtual_account">Permata Virtual Account</string>
+    <string name="atm_bersama_other">ATM Bersama / Other</string>
+    <string name="bca_virtual_account">BCA Virtual Account</string>
+    <string name="ovo">OVO</string>
+    <string name="virtual_account">Virtual Account</string>
 </resources>
