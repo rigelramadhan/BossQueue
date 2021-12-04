@@ -2,6 +2,7 @@ package com.rigelramadhan.bossqueue.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -43,9 +44,13 @@ class PlaceAdapter(private val activity: AppCompatActivity, private val places: 
             }
         }
 
+        val placeId = placeController.getParent(place.name!!)
+        Log.d("ADAPTER_PLACE", "Place ID: $placeId")
+
         holder.binding.cvPlace.setOnClickListener {
             val intent = Intent(activity, MenuActivity::class.java)
-            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, placeController.getParent(place.name!!))
+            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, place.name)
+
             activity.startActivity(intent)
         }
     }

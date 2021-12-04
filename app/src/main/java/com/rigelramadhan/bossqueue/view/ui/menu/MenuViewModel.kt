@@ -19,7 +19,7 @@ class MenuViewModel(private val id: Int) {
         val allFoods = SampleData.foodSampleData
 
         for (food in allFoods) {
-            if (food.placeId == id) {
+            if (Integer.parseInt(food.placeId) == id) {
                 foods.add(food)
             }
         }

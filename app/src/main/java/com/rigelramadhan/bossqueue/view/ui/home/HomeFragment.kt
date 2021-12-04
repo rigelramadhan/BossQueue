@@ -37,6 +37,12 @@ class HomeFragment : Fragment() {
         placeController = PlaceController(activity as AppCompatActivity)
 
         places = placeController.getPlaces()
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.rvFindplace.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = CategoryAdapter(SampleData.categorySampleData)
@@ -45,12 +51,6 @@ class HomeFragment : Fragment() {
         placeController.configurePlacesRv(binding.rvHotnow, LinearLayoutManager.HORIZONTAL)
         placeController.configureNearPlacesRv(binding.rvNearyou, LinearLayoutManager.HORIZONTAL)
         placeController.configurePlacesRv(binding.rvLastplace, LinearLayoutManager.HORIZONTAL)
-
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onDestroyView() {

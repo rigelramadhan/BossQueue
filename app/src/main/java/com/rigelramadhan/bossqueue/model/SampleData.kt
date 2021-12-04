@@ -1,6 +1,8 @@
 package com.rigelramadhan.bossqueue.model
 
 object SampleData {
+    var bill = 0.0
+
     val placeSampleData = arrayListOf<Place>(
         Place("Hause Rooftop", "Malang", "Hause Rooftop adalah sebuah tempat aestetik yang memberikan pengalaman yang menyegarkan", true, ""),
         Place("Tempat Kedua", "Malang", "deskripsi2", true, ""),
@@ -23,15 +25,15 @@ object SampleData {
     )
 
     val foodSampleData = arrayListOf<Food>(
-        Food(1, "Food1", "Ini adalah deskripsi food1", 25600.0, "", 1, 1),
-        Food(2, "Food2", "Ini adalah deskripsi food2", 15600.0, "", 1, 1),
-        Food(3, "Food3", "Ini adalah deskripsi food3", 35600.0, "", 2, 1),
-        Food(4, "Food4", "Ini adalah deskripsi food4", 10600.0, "", 1, 2),
-        Food(5, "Food5", "Ini adalah deskripsi food5", 20600.0, "", 2, 2),
-        Food(6, "Food6", "Ini adalah deskripsi food6", 30600.0, "", 2, 2),
-        Food(7, "Food7", "Ini adalah deskripsi food7", 28600.0, "", 2, 3),
-        Food(8, "Food8", "Ini adalah deskripsi food8", 18600.0, "", 1, 3),
-        Food(9, "Food9", "Ini adalah deskripsi food9", 48600.0, "", 2, 3),
+        Food("Food1", "Ini adalah deskripsi food1", 25600.0, "", 1, "1"),
+        Food("Food2", "Ini adalah deskripsi food2", 15600.0, "", 1, "1"),
+        Food("Food3", "Ini adalah deskripsi food3", 35600.0, "", 2, "1"),
+        Food("Food4", "Ini adalah deskripsi food4", 10600.0, "", 1, "2"),
+        Food("Food5", "Ini adalah deskripsi food5", 20600.0, "", 2, "2"),
+        Food("Food6", "Ini adalah deskripsi food6", 30600.0, "", 2, "2"),
+        Food("Food7", "Ini adalah deskripsi food7", 28600.0, "", 2, "3"),
+        Food("Food8", "Ini adalah deskripsi food8", 18600.0, "", 1, "3"),
+        Food("Food9", "Ini adalah deskripsi food9", 48600.0, "", 2, "3"),
     )
 
     val basketSampleData = arrayListOf<Basket>(

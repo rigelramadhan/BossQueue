@@ -1,6 +1,7 @@
 package com.rigelramadhan.bossqueue.controller
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.adapter.PlaceAdapter
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.User
+import com.rigelramadhan.bossqueue.view.ui.menu.MenuActivity
 
 class PlaceController(private val activity: AppCompatActivity) {
     private var auth: FirebaseAuth = Firebase.auth
@@ -65,7 +67,12 @@ class PlaceController(private val activity: AppCompatActivity) {
 
         userData.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                user = snapshot.getValue<User>()!!
+                val tempUser: User? = snapshot.getValue<User>()
+                if (tempUser != null) {
+                    user = tempUser
+                } else {
+
+                }
             }
             override fun onCancelled(error: DatabaseError) {
             }
@@ -103,20 +110,56 @@ class PlaceController(private val activity: AppCompatActivity) {
         checkPlaces.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (data in snapshot.children) {
-                    if (data.child("name").toString().equals(name, true)) {
-                        key = data.key.toString()
+                    val place = data.getValue<Place>()
+                    if (place != null) {
+                        if (place.name.equals(name)) {
+                            key = data.key!!
+                        }
                     }
                 }
+
             }
 
             override fun onCancelled(error: DatabaseError) {}
 
         })
 
+        Log.d(TAG+".getParent", "Place ID: $key")
         return key
     }
 
+    public fun openPlaceMenu(name: String) {
+        val checkPlaces = Firebase.database.getReference("places")
+        checkPlaces.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (data in snapshot.children) {
+                    val place = data.getValue<Place>()
+                    if (place != null) {
+                        if (place.name.equals(name)) {
+                            val intent = Intent(activity, MenuActivity::class.java)
+                            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, data.key)
+                            activity.startActivity(intent)
+                        }
+                    }
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {}
+
+        })
+    }
+
     public fun getPlaces() = places
+    public fun getPlace(id: String): Place? {
+        for (place in places) {
+            if (getParent(place.name!!) == id) {
+                return place
+            }
+        }
+
+        return null
+    }
 
     private fun addSamplePlaces() {
         addPlace("Hause Rooftop", "Malang"

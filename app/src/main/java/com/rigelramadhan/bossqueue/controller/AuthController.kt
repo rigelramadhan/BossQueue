@@ -6,8 +6,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.User
 import com.rigelramadhan.bossqueue.view.MainNavActivity
@@ -75,6 +79,24 @@ class AuthController(private val activity: AppCompatActivity) {
         val user = User(name, email, password, location)
 
         database.child("users").child(userId).setValue(user)
+    }
+
+    fun getUser(): User {
+        val userData = Firebase.database.getReference("users").child(auth.uid.toString())
+        var user = User()
+
+        userData.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val tempUser: User? = snapshot.getValue<User>()
+                if (tempUser != null) {
+                    user = tempUser
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
+        return user
     }
 
     private fun directToMainMenu() {

@@ -1,5 +1,6 @@
 package com.rigelramadhan.bossqueue.view.ui.basket
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -17,9 +18,13 @@ import com.midtrans.sdk.corekit.models.snap.Gopay
 import com.midtrans.sdk.corekit.models.snap.Shopeepay
 import com.midtrans.sdk.corekit.models.snap.TransactionResult
 import com.midtrans.sdk.uikit.SdkUIFlowBuilder
+import com.rigelramadhan.bossqueue.R
 import com.rigelramadhan.bossqueue.SdkConfig
 import com.rigelramadhan.bossqueue.adapter.RemoveFoodAdapter
+import com.rigelramadhan.bossqueue.controller.AuthController
 import com.rigelramadhan.bossqueue.databinding.ActivityBasketBinding
+import com.rigelramadhan.bossqueue.model.SampleData
+import com.rigelramadhan.bossqueue.model.User
 
 class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
 
@@ -29,6 +34,8 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
 
     private lateinit var basketViewModel: BasketViewModel
     private lateinit var binding: ActivityBasketBinding
+    private lateinit var authController: AuthController
+    private lateinit var user: User
     private var userId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +43,12 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
         binding = ActivityBasketBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        authController = AuthController(this)
+        user = authController.getUser()
+        loadData()
+
         initActionButtons()
         initMidtransSdk()
-        loadData()
     }
 
     private fun loadData() {
@@ -52,7 +62,7 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
 
     private fun initTransactionRequest(): TransactionRequest {
         // Create new Transaction Request
-        val transactionRequestNew = TransactionRequest(System.currentTimeMillis().toString() + "", 36500.0)
+        val transactionRequestNew = TransactionRequest(System.currentTimeMillis().toString() + "", SampleData.bill)
         transactionRequestNew.customerDetails = initCustomerDetails()
         transactionRequestNew.gopay = Gopay("mysamplesdk:://midtrans")
         transactionRequestNew.shopeepay = Shopeepay("mysamplesdk:://midtrans")
@@ -62,16 +72,21 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
     private fun initCustomerDetails(): CustomerDetails {
         //define customer detail (mandatory for coreflow)
         val mCustomerDetails = CustomerDetails()
-        mCustomerDetails.phone = "085310102020"
-        mCustomerDetails.firstName = "user fullname"
-        mCustomerDetails.email = "mail@mail.com"
-        mCustomerDetails.customerIdentifier = "mail@mail.com"
+        mCustomerDetails.firstName = user.name
+        mCustomerDetails.email = user.email
+        mCustomerDetails.customerIdentifier = user.email
         return mCustomerDetails
     }
 
+    @SuppressLint("ResourceType")
     private fun initMidtransSdk() {
         val clientKey: String = SdkConfig.MERCHANT_CLIENT_KEY
         val baseUrl: String = SdkConfig.MERCHANT_BASE_CHECKOUT_URL
+
+        val color1 = resources.getString(R.color.orange_1)
+        val color2 = resources.getString(R.color.orange_2)
+        val color3 = resources.getString(R.color.brown_1)
+
         val sdkUIFlowBuilder: SdkUIFlowBuilder = SdkUIFlowBuilder.init()
             .setClientKey(clientKey)
             .setContext(this)
@@ -79,7 +94,7 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
             .setMerchantBaseUrl(baseUrl)
             .setUIkitCustomSetting(uiKitCustomSetting())
             .enableLog(true) // enable sdk log
-            .setColorTheme(CustomColorTheme("#FFE51255", "#B61548", "#FFE51255"))
+            .setColorTheme(CustomColorTheme(color1, color2, color3))
             .setLanguage("en")
         sdkUIFlowBuilder.buildSDK()
     }

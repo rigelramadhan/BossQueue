@@ -1,11 +1,10 @@
 package com.rigelramadhan.bossqueue.model
 
 data class Food(
-    val id: Int,
-    val name: String,
-    val description: String,
-    val price: Double,
-    val picture: String,
-    val categoryId: Int,
-    val placeId: Int
+    val name: String? = null,
+    val description: String? = null,
+    val price: Double? = null,
+    val picture: String? = null,
+    val categoryId: Int? = null,
+    val placeId: String? = null
 )
