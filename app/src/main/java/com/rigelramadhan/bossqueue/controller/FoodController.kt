@@ -1,6 +1,7 @@
 package com.rigelramadhan.bossqueue.controller
 
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +32,7 @@ class FoodController(private val activity: AppCompatActivity) {
 //        addSampleFoods()
 //    }
 
-    public fun configureFoodsRv(rv: RecyclerView, orientation: Int, categoryId: Int = 0) {
+    public fun configureFoodsRv(rv: RecyclerView, orientation: Int, categoryId: Int = 0, basketText: TextView? = null) {
         val checkFoods = Firebase.database.getReference("foods")
 
         checkFoods.addValueEventListener(object : ValueEventListener {
@@ -56,7 +57,7 @@ class FoodController(private val activity: AppCompatActivity) {
                     Log.d(FoodController.TAG, tempFoods.toString())
                     if (categoryId == 0) foods = tempFoods
                     rv.apply {
-                        adapter = FoodAdapter(activity, tempFoods)
+                        adapter = FoodAdapter(activity, tempFoods, basketText)
                         layoutManager = LinearLayoutManager(context, orientation, false)
                     }
                 }

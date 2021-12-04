@@ -49,14 +49,6 @@ class MenuActivity : AppCompatActivity() {
             intent.putExtra(BasketActivity.EXTRA_USER_ID, placeName)
             startActivity(intent)
         }
-
-        binding.rlMenu.setOnClickListener {
-            if (SampleData.bill <= 0.0) {
-                binding.tvBasket.text = resources.getString(R.string.basket)
-            } else {
-                binding.tvBasket.text = SampleData.bill.toString()
-            }
-        }
     }
 
     private fun loadData() {
@@ -83,8 +75,8 @@ class MenuActivity : AppCompatActivity() {
                         }
                     }
 
-                    foodController.configureFoodsRv(binding.rvFood2, LinearLayoutManager.HORIZONTAL, Category.FOOD)
-                    foodController.configureFoodsRv(binding.rvDrink2, LinearLayoutManager.HORIZONTAL, Category.DRINK)
+                    foodController.configureFoodsRv(binding.rvFood2, LinearLayoutManager.HORIZONTAL, Category.FOOD, binding.tvBasket)
+                    foodController.configureFoodsRv(binding.rvDrink2, LinearLayoutManager.HORIZONTAL, Category.DRINK, binding.tvBasket)
                 }
             }
 
