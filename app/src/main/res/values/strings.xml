@@ -50,4 +50,6 @@
     <string name="bca_virtual_account">BCA Virtual Account</string>
     <string name="ovo">OVO</string>
     <string name="virtual_account">Virtual Account</string>
+    <string name="pay_amount">Amount that you have to pay:</string>
+    <string name="price">Rp25.000</string>
 </resources>

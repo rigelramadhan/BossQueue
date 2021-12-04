@@ -248,4 +248,25 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_money_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/pay_amount"
+        android:layout_above="@+id/tv_pay_amount"
+        android:layout_alignStart="@+id/tv_pay_amount"
+        />
+
+    <TextView
+        android:id="@+id/tv_pay_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="28dp"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/price" />
+
 </RelativeLayout>

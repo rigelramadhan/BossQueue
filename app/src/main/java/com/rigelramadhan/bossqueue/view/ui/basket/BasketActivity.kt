@@ -58,6 +58,7 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
             adapter = RemoveFoodAdapter(basketViewModel.getFoods())
             layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         }
+        binding.tvPayAmount.text = SampleData.bill.toString()
     }
 
     private fun initTransactionRequest(): TransactionRequest {
