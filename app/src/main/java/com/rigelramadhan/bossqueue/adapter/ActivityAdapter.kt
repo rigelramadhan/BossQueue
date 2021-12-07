@@ -10,6 +10,7 @@ import com.rigelramadhan.bossqueue.model.Activity
 import com.rigelramadhan.bossqueue.model.SampleData
 
 class ActivityAdapter(private val list: List<Activity>) : RecyclerView.Adapter<ActivityAdapter.ViewHolder>() {
+    // TODO: COMPLETE THE ADAPTERS
     class ViewHolder(var binding: ItemCardActivityBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,9 +20,6 @@ class ActivityAdapter(private val list: List<Activity>) : RecyclerView.Adapter<A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val activity = list[position]
-
-        holder.binding.tvActivitiesName.text = SampleData.placeSampleData[activity.placeId].name
-        holder.binding.tvBill.text = SampleData.foodSampleData[activity.foodId].price.toString()
 
         val status = if (activity.paid) {
             holder.binding.layoutPay.visibility = View.INVISIBLE

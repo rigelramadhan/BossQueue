@@ -37,6 +37,7 @@ class HomeViewModel : ViewModel() {
                         for (dataSnapshot in snapshot.children) {
                             val place = dataSnapshot.getValue<Place>()
                             if (place != null) {
+                                place.id = dataSnapshot.key
                                 places.add(place)
                             }
                         }
