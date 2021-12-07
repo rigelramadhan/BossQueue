@@ -1,7 +1,5 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
-I plan to make it as clean as possible (UI and code wise) later
-
 ### Update 2021/12/7 (Rigel)
 - Cleaning up messy codes
 - Starting to implement ViewModels
