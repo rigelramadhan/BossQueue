@@ -1,18 +1,15 @@
-package com.rigelramadhan.bossqueue.view.ui.basket
+package com.rigelramadhan.bossqueue.view
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.midtrans.sdk.corekit.callback.CardRegistrationCallback
+import androidx.appcompat.app.AppCompatActivity
 import com.midtrans.sdk.corekit.callback.TransactionFinishedCallback
 import com.midtrans.sdk.corekit.core.MidtransSDK
 import com.midtrans.sdk.corekit.core.PaymentMethod
 import com.midtrans.sdk.corekit.core.TransactionRequest
 import com.midtrans.sdk.corekit.core.UIKitCustomSetting
 import com.midtrans.sdk.corekit.core.themes.CustomColorTheme
-import com.midtrans.sdk.corekit.models.CardRegistrationResponse
 import com.midtrans.sdk.corekit.models.CustomerDetails
 import com.midtrans.sdk.corekit.models.snap.Gopay
 import com.midtrans.sdk.corekit.models.snap.Shopeepay
@@ -20,21 +17,17 @@ import com.midtrans.sdk.corekit.models.snap.TransactionResult
 import com.midtrans.sdk.uikit.SdkUIFlowBuilder
 import com.rigelramadhan.bossqueue.R
 import com.rigelramadhan.bossqueue.SdkConfig
-import com.rigelramadhan.bossqueue.adapter.RemoveFoodAdapter
-import com.rigelramadhan.bossqueue.controller.AuthController
 import com.rigelramadhan.bossqueue.databinding.ActivityBasketBinding
 import com.rigelramadhan.bossqueue.model.SampleData
 import com.rigelramadhan.bossqueue.model.User
 
 class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
-
+    // TODO: COMPLETE THE BASKET
     companion object {
         const val EXTRA_USER_ID = "extra_user_id"
     }
 
-    private lateinit var basketViewModel: BasketViewModel
     private lateinit var binding: ActivityBasketBinding
-    private lateinit var authController: AuthController
     private lateinit var user: User
     private var userId = 0
 
@@ -43,8 +36,6 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
         binding = ActivityBasketBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        authController = AuthController(this)
-        user = authController.getUser()
         loadData()
 
         initActionButtons()
@@ -53,11 +44,10 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
 
     private fun loadData() {
         userId = intent.getIntExtra(EXTRA_USER_ID, 1)
-        basketViewModel = BasketViewModel(userId)
-        binding.rvFoods.apply {
-            adapter = RemoveFoodAdapter(basketViewModel.getFoods())
-            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        }
+//        binding.rvFoods.apply {
+//            adapter = RemoveFoodAdapter(basketViewModel.getFoods())
+//            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+//        }
     }
 
     private fun initTransactionRequest(): TransactionRequest {

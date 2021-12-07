@@ -1,19 +1,17 @@
-package com.rigelramadhan.bossqueue.view.ui.activities
+package com.rigelramadhan.bossqueue.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rigelramadhan.bossqueue.adapter.ActivityAdapter
 import com.rigelramadhan.bossqueue.databinding.FragmentActivitiesBinding
 import com.rigelramadhan.bossqueue.model.SampleData
 
 class ActivitiesFragment : Fragment() {
-
-    private lateinit var dashboardViewModel: DashboardViewModel
+    // TODO: COMPLETE THE ACTIVITIES
     private var _binding: FragmentActivitiesBinding? = null
 
     // This property is only valid between onCreateView and
@@ -25,8 +23,6 @@ class ActivitiesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this)[DashboardViewModel::class.java]
 
         _binding = FragmentActivitiesBinding.inflate(inflater, container, false)
 

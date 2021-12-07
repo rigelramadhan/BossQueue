@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.rigelramadhan.bossqueue.view.ui.home.HomeFragment"
+        android:name="com.rigelramadhan.bossqueue.view.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/navigation_activity"
-        android:name="com.rigelramadhan.bossqueue.view.ui.activities.ActivitiesFragment"
+        android:name="com.rigelramadhan.bossqueue.view.ActivitiesFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_activities" >
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.rigelramadhan.bossqueue.view.ui.notifications.NotificationsFragment"
+        android:name="com.rigelramadhan.bossqueue.view.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action

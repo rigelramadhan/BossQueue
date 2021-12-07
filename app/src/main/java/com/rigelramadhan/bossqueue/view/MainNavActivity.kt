@@ -1,22 +1,16 @@
 package com.rigelramadhan.bossqueue.view
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rigelramadhan.bossqueue.R
-import com.rigelramadhan.bossqueue.controller.AuthController
-import com.rigelramadhan.bossqueue.controller.PlaceController
 import com.rigelramadhan.bossqueue.databinding.ActivityMainNavBinding
 
 class MainNavActivity : AppCompatActivity() {
-
+    // TODO: COMPLETE THE AUTHENTICATION IN MAIN
     private lateinit var binding: ActivityMainNavBinding
-    private lateinit var authController: AuthController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +19,6 @@ class MainNavActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-        authController = AuthController(this)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main_nav) as NavHostFragment
@@ -38,6 +31,5 @@ class MainNavActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        authController.checkIfUserSignedIn()
     }
 }

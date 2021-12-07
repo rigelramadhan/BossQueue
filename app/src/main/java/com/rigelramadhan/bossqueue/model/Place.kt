@@ -1,9 +1,14 @@
 package com.rigelramadhan.bossqueue.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Place(
-    val name: String? = null,
-    val location: String? = null,
-    val description: String? = null,
-    val open: Boolean? = null,
-    val picture: String? = null
-)
+    val id: String,
+    val name: String,
+    val location: String,
+    val description: String,
+    val open: Boolean,
+    val picture: String
+) : Parcelable

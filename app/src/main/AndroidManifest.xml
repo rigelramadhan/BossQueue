@@ -12,16 +12,16 @@
         tools:replace="android:allowBackup"
         android:theme="@style/Theme.BossQueue">
         <activity
-            android:name=".view.ui.auth.RegisterActivity"
+            android:name=".view.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ui.auth.LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ui.basket.BasketActivity"
+            android:name=".view.BasketActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ui.menu.MenuActivity"
+            android:name=".view.MenuActivity"
             android:exported="false" />
         <activity
             android:name=".view.MainNavActivity"

@@ -1,6 +1,5 @@
 package com.rigelramadhan.bossqueue.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,16 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.storage.FirebaseStorage
-import com.rigelramadhan.bossqueue.R
-import com.rigelramadhan.bossqueue.controller.PlaceController
 import com.rigelramadhan.bossqueue.databinding.ItemCardPlaceBinding
 import com.rigelramadhan.bossqueue.model.Place
-import com.rigelramadhan.bossqueue.view.ui.menu.MenuActivity
+import com.rigelramadhan.bossqueue.view.MenuActivity
 
 class PlaceAdapter(private val activity: AppCompatActivity, private val places: List<Place>) : RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
     class ViewHolder(var binding: ItemCardPlaceBinding): RecyclerView.ViewHolder(binding.root)
-
-    private val placeController = PlaceController(activity)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemCardPlaceBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -43,9 +38,6 @@ class PlaceAdapter(private val activity: AppCompatActivity, private val places: 
                     .into(holder.binding.imgPlace)
             }
         }
-
-        val placeId = placeController.getParent(place.name!!)
-        Log.d("ADAPTER_PLACE", "Place ID: $placeId")
 
         holder.binding.cvPlace.setOnClickListener {
             val intent = Intent(activity, MenuActivity::class.java)

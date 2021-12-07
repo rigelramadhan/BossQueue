@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white_1"
-    tools:context=".view.ui.menu.MenuActivity">
+    tools:context=".view.MenuActivity">
 
     <RelativeLayout
         android:id="@+id/layout_img_menu"
