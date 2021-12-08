@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rigelramadhan.bossqueue.adapter.PlaceAdapter
 import com.rigelramadhan.bossqueue.databinding.FragmentHomeBinding
 import com.rigelramadhan.bossqueue.model.Place
+import com.rigelramadhan.bossqueue.util.LoadingState
 import com.rigelramadhan.bossqueue.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
@@ -25,9 +26,9 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeViewModel.data.observe(activity as AppCompatActivity, Observer {
+        homeViewModel.data.observe(activity as AppCompatActivity, {
             binding.rvHotnow.apply {
                 adapter = PlaceAdapter(activity as AppCompatActivity, it)
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -47,6 +48,18 @@ class HomeFragment : Fragment() {
             binding.rvLastplace.apply {
                 adapter = PlaceAdapter(activity as AppCompatActivity, it)
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            }
+        })
+
+        homeViewModel.loading.observe(activity as AppCompatActivity, {
+            if (it.status == LoadingState.Status.RUNNING) {
+                binding.progressBar.visibility = View.VISIBLE
+            }
+            if (it.status == LoadingState.Status.SUCCESS) {
+                binding.progressBar.visibility = View.INVISIBLE
+            }
+            if (it.status == LoadingState.Status.FAILED) {
+                binding.progressBar.visibility = View.INVISIBLE
             }
         })
 
