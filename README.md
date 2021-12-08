@@ -1,9 +1,14 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
+### Update 2021/12/8 (Rigel)
+- Implemented Authentication and User ViewModels
+- Added progress bar on loadings
+- Implemented authentication processes and main menu with ViewModels
+
 ### Update 2021/12/7 (Rigel)
-- Cleaning up messy codes
-- Starting to implement ViewModels
-- Starting to make it clearer of what architecture it uses
+- Cleaned up messy codes
+- Started to implement ViewModels
+- Started to make it clearer of what architecture it uses
 - !!! NOT WORKING YET
 
 ### After 2021/12/4
