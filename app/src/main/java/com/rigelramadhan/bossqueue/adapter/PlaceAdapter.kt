@@ -41,7 +41,7 @@ class PlaceAdapter(private val activity: AppCompatActivity, private val places: 
 
         holder.binding.cvPlace.setOnClickListener {
             val intent = Intent(activity, MenuActivity::class.java)
-            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, place.name)
+            intent.putExtra(MenuActivity.EXTRA_PLACE_ID, place.id)
 
             activity.startActivity(intent)
         }

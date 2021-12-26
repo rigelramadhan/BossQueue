@@ -32,16 +32,14 @@ class MenuActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         menuViewModel.foods.observe(this, {
-            val layout = LinearLayoutManager(this@MenuActivity, LinearLayoutManager.HORIZONTAL, false)
-
             binding.rvFood2.apply {
                 adapter = FoodAdapter(this@MenuActivity, it)
-                layoutManager = layout
+                layoutManager = LinearLayoutManager(this@MenuActivity, LinearLayoutManager.HORIZONTAL, false)
             }
 
             binding.rvDrink2.apply {
                 adapter = FoodAdapter(this@MenuActivity, it)
-                layoutManager = layout
+                layoutManager = LinearLayoutManager(this@MenuActivity, LinearLayoutManager.HORIZONTAL, false)
             }
         })
 

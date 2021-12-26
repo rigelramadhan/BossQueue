@@ -1,5 +1,6 @@
 package com.rigelramadhan.bossqueue.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -38,6 +39,7 @@ class HomeViewModel : ViewModel() {
                             val place = dataSnapshot.getValue<Place>()
                             if (place != null) {
                                 place.id = dataSnapshot.key
+                                Log.d(HomeViewModel::class.java.simpleName, "Place ID: ${place.id}")
                                 places.add(place)
                             }
                         }
