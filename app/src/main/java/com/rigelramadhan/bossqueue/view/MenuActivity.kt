@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.rigelramadhan.bossqueue.adapter.FoodAdapter
 import com.rigelramadhan.bossqueue.databinding.ActivityMenuBinding
 import com.rigelramadhan.bossqueue.viewmodel.MenuViewModel
 
@@ -17,16 +19,30 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
     private var placeName = ""
-    private lateinit var menuViewModel: MenuViewModel
+    private val menuViewModel: MenuViewModel by viewModels {
+        val placeId = intent.getStringExtra(EXTRA_PLACE_ID)
+        if (placeId != null) {
+            MenuViewModel.MenuViewModelFactory(placeId)
+        } else MenuViewModel.MenuViewModelFactory()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // TODO: CALL THE VIEWMODEL
         menuViewModel.foods.observe(this, {
+            val layout = LinearLayoutManager(this@MenuActivity, LinearLayoutManager.HORIZONTAL, false)
 
+            binding.rvFood2.apply {
+                adapter = FoodAdapter(this@MenuActivity, it)
+                layoutManager = layout
+            }
+
+            binding.rvDrink2.apply {
+                adapter = FoodAdapter(this@MenuActivity, it)
+                layoutManager = layout
+            }
         })
 
         binding.layoutBasket.setOnClickListener {

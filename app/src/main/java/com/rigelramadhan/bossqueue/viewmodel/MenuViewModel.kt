@@ -1,9 +1,6 @@
 package com.rigelramadhan.bossqueue.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -15,7 +12,13 @@ import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MenuViewModel(private val id: String) : ViewModel() {
+class MenuViewModel(private val placeId: String) : ViewModel() {
+    class MenuViewModelFactory(private val placeId: String = "0") : ViewModelProvider.NewInstanceFactory() {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return super.create(modelClass)
+        }
+    }
+
     private val _loading = MutableLiveData<LoadingState>()
     val loading: LiveData<LoadingState> get() = _loading
 
@@ -36,7 +39,7 @@ class MenuViewModel(private val id: String) : ViewModel() {
                     for (data in snapshot.children) {
                         val food = data.getValue<Food>()
                         if (food != null) {
-                            if (food.placeId == id) {
+                            if (food.placeId == placeId) {
                                 food.id = data.key
                                 foods.add(food)
                             }
