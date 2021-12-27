@@ -128,6 +128,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/item_card_activities.xml" value="0.3541666666666667" />
+        <entry key="app/src/main/res/layout/item_card_activity.xml" value="0.19739583333333333" />
         <entry key="app/src/main/res/layout/item_card_drink.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/item_card_findplace.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/item_card_food.xml" value="0.67" />

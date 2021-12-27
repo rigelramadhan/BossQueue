@@ -9,6 +9,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Food
+import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,6 +20,9 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
 
     private val _foods = MutableLiveData<List<Food>>()
     val foods: LiveData<List<Food>> = _foods
+
+    private val _place = MutableLiveData<Place>()
+    val place: LiveData<Place> = _place
 
     init {
         fetchData()
@@ -52,9 +56,29 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
                 }
             })
         }
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val queryPlace = Firebase.database.getReference("places")
+            queryPlace.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (data in snapshot.children) {
+                        if (data.key == placeId) {
+                            val place = data.getValue<Place>()
+                            place!!.id = data.key
+                            _place.postValue(place!!)
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
+        }
     }
 
-    public class MenuViewModelFactory(private val placeId: String = "0") : ViewModelProvider.NewInstanceFactory() {
+    class MenuViewModelFactory(private val placeId: String = "0") : ViewModelProvider.NewInstanceFactory() {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return MenuViewModel(placeId) as T

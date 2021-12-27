@@ -30,7 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:paddingStart="15dp"
-            android:src="@drawable/ic_search_icon" />
+            android:paddingEnd="0dp"
+            android:src="@drawable/ic_search_icon"
+            android:contentDescription="@string/descripton_search_icon" />
 
         <TextView
             android:id="@+id/tv_search"

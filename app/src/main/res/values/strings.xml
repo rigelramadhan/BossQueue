@@ -52,4 +52,14 @@
     <string name="virtual_account">Virtual Account</string>
     <string name="pay_amount">Amount that you have to pay:</string>
     <string name="price">Rp25.000</string>
+    <string name="description_zoom_icon">Zoom icon</string>
+    <string name="description_back_icon">Back icon</string>
+    <string name="descripton_search_icon">Search icon</string>
+    <string name="description_place_container_gradient">Color gradient</string>
+    <string name="name">Name</string>
+    <string name="hint_name">John john</string>
+    <string name="email">Email</string>
+    <string name="hint_email">john@email.com</string>
+    <string name="password">Password</string>
+    <string name="hint_password">********</string>
 </resources>

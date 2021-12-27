@@ -19,15 +19,17 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_tes" />
+            android:src="@drawable/img_tes"
+            android:contentDescription="@string/description_place_image"/>
         
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:background="@drawable/gradient_black"/>
+            android:background="@drawable/gradient_black"
+            android:contentDescription="@string/description_place_image"/>
 
         <RelativeLayout
-            android:id="@+id/layout_back"
+            android:id="@+id/layout_btn_back"
             android:layout_width="30dp"
             android:layout_height="25dp"
             android:layout_marginStart="15dp"
@@ -35,16 +37,17 @@
             android:background="@drawable/rectangle_layout_back" >
 
             <ImageView
-                android:id="@+id/img_back"
+                android:id="@+id/arrow_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
+                android:contentDescription="@string/description_back_icon"
                 android:src="@drawable/icon_arrow_kiri_putih" />
 
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tv_placename"
+            android:id="@+id/tv_place_name"
             android:text="@string/place_name"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -54,7 +57,7 @@
             android:layout_height="wrap_content"/>
 
         <RelativeLayout
-            android:id="@+id/layout_circle_zoom"
+            android:id="@+id/layout_btn_zoom"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_alignParentBottom="true"
@@ -64,11 +67,12 @@
             android:background="@drawable/round_white_background">
 
             <ImageView
-                android:id="@+id/img_zoom"
+                android:id="@+id/icon_zoom"
                 android:src="@drawable/ic_zoom"
                 android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/description_zoom_icon"/>
 
         </RelativeLayout>
 

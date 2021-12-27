@@ -30,15 +30,15 @@
             android:src="@drawable/img_register1" />
 
         <RelativeLayout
-            android:id="@+id/layout_back"
+            android:id="@+id/layout_btn_back"
             android:layout_width="30dp"
             android:layout_height="25dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/rectangle_layout_back" >
 
             <ImageView
-                android:id="@+id/img_back"
+                android:id="@+id/arrow_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -64,7 +64,7 @@
             android:gravity="center"
             android:text="@string/this_app_helping_you_to_find"
             android:textColor="@color/white"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
         <ImageView
             android:id="@+id/img_bulet1"
@@ -84,17 +84,17 @@
             android:layout_marginTop="-25dp"
             android:text="@string/input_your_data"
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_name"
             android:layout_below="@id/tv_inputdata"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:text="name"
+            android:layout_marginStart="30dp"
+            android:text="@string/name"
             android:textColor="@color/white_2"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/et_name"
@@ -105,18 +105,24 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/rectangle_editteks_register"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+            android:hint="@string/hint_name"
+            android:inputType="text"
+            android:padding="8dp"
+            android:autofillHints="John john"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+            />
 
         <TextView
             android:id="@+id/tv_email"
             android:layout_below="@id/et_name"
-            android:text="email"
-            android:textSize="18dp"
+            android:text="@string/email"
+            android:textSize="18sp"
             android:textColor="@color/white_2"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            />
 
         <EditText
             android:id="@+id/et_email"
@@ -127,17 +133,20 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/rectangle_editteks_register"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:autofillHints="john@email.com"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <TextView
             android:id="@+id/tv_password"
             android:layout_below="@id/et_email"
-            android:text="password"
-            android:textSize="18dp"
+            android:text="@string/password"
+            android:textSize="18sp"
             android:textColor="@color/white_2"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -150,7 +159,10 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/rectangle_editteks_register"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
+            android:padding="8dp"
+            android:autofillHints="********"
             tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     </RelativeLayout>
@@ -160,7 +172,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@id/layout_bossqueregister2"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="30dp"
