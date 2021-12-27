@@ -17,7 +17,7 @@ class CategoryAdapter(private val list: List<Category>) : RecyclerView.Adapter<C
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val category = list[position]
 
-        holder.binding.tvPlacename.text = category.name
+        holder.binding.tvPlaceName.text = category.name
 
         holder.itemView.setOnClickListener {
 
