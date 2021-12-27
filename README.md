@@ -1,5 +1,10 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
+### Update 2021/12/28 (Rigel)
+- Implemented ViewModel for menu
+- Implemented menu page for places
+- Reduced redundancy in source codes
+
 ### Update 2021/12/8 (Rigel)
 - Implemented Authentication and User ViewModels
 - Added progress bar on loadings
