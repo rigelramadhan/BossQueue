@@ -106,10 +106,20 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
 
     fun createBasket(userId: String, foodId: String, placeId: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            Firebase.database.reference.child("baskets").child(userId)
-                .child("foodId").setValue(foodId)
-            Firebase.database.reference.child("baskets").child(userId)
-                .child("placeId").setValue(placeId)
+            val basketId = "${userId.subSequence(0, 3)}${foodId.subSequence(0, 3)}${placeId.subSequence(0, 3)}"
+            Firebase.database.reference.child("baskets").child(basketId)
+                .child("user_id").setValue(userId)
+            Firebase.database.reference.child("baskets").child(basketId)
+                .child("food_id").setValue(foodId)
+            Firebase.database.reference.child("baskets").child(basketId)
+                .child("place_id").setValue(placeId)
+        }
+    }
+
+    fun deleteBasket(userId: String, foodId: String, placeId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val basketId = "${userId.subSequence(0, 3)}${foodId.subSequence(0, 3)}${placeId.subSequence(0, 3)}"
+            Firebase.database.getReference("baskets").child(basketId).removeValue()
         }
     }
 

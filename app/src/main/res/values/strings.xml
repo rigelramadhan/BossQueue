@@ -62,4 +62,5 @@
     <string name="hint_email">john@email.com</string>
     <string name="password">Password</string>
     <string name="hint_password">********</string>
+    <string name="added_text">Added</string>
 </resources>

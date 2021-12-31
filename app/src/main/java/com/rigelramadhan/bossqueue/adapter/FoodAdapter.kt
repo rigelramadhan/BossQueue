@@ -8,13 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.rigelramadhan.bossqueue.R
 import com.rigelramadhan.bossqueue.databinding.ItemCardFoodBinding
 import com.rigelramadhan.bossqueue.model.Food
 import com.rigelramadhan.bossqueue.model.SampleData
+import com.rigelramadhan.bossqueue.view.MenuActivity
 
-class FoodAdapter(private val activity: AppCompatActivity, private val list: List<Food>, private val basketText: TextView? = null) : RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
+class FoodAdapter(private val activity: MenuActivity, private val list: List<Food>, private val basketText: TextView? = null) : RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
     class ViewHolder(var binding: ItemCardFoodBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,7 +27,7 @@ class FoodAdapter(private val activity: AppCompatActivity, private val list: Lis
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val food = list[position]
         holder.binding.tvFoodName.text = food.name
-        holder.binding.tvDetails.text = "Rp${food.price.toString()}"
+        holder.binding.tvPrice.text = "Rp${food.price.toString()}"
 
         val storage = FirebaseStorage.getInstance()
         val gsRef = storage.getReferenceFromUrl(food.picture!!)
@@ -40,7 +42,27 @@ class FoodAdapter(private val activity: AppCompatActivity, private val list: Lis
         }
 
         holder.binding.cvFood.setOnClickListener {
-            // TODO: COMPLETE THE ON CLICK LISTENER
+            when (holder.binding.layoutAdd.visibility) {
+                View.VISIBLE -> {
+                    activity.menuViewModel.createBasket(FirebaseAuth.getInstance().uid!!, food.id!!, food.placeId!!)
+                    holder.binding.layoutAdd.visibility = View.INVISIBLE
+                    holder.binding.tvPrice.apply {
+                        text = activity.getString(R.string.added_text)
+                        setTextColor(activity.resources.getColor(R.color.black))
+                    }
+                }
+                
+                View.INVISIBLE -> {
+                    activity.menuViewModel.deleteBasket(FirebaseAuth.getInstance().uid!!, food.id!!, food.placeId!!)
+                    holder.binding.layoutAdd.visibility = View.VISIBLE
+                    holder.binding.tvPrice.apply {
+                        text = "Rp${food.price.toString()}"
+                        setTextColor(activity.resources.getColor(R.color.white))
+                    }
+                }
+                
+                else -> {}
+            }
         }
     }
 

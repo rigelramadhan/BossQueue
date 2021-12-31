@@ -39,35 +39,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
-                <RelativeLayout
-                    android:id="@+id/layout_backgroud_details"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="visible"
-                    android:background="@drawable/rectangle_layout_food_klik">
-
-                    <RelativeLayout
-                        android:id="@+id/layout_details"
-                        android:layout_centerInParent="true"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rectangle_layout_details">
-
-                        <TextView
-                            android:id="@+id/tv_details"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_marginVertical="3dp"
-                            android:text="@string/details"
-                            android:textColor="@color/white"
-                            android:textSize="11sp" />
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -85,32 +56,23 @@
 
             <RelativeLayout
                 android:id="@+id/layout_add"
+                android:layout_width="88dp"
+                android:layout_height="17dp"
                 android:layout_below="@id/tv_food_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginVertical="5dp"
-                android:layout_width="55dp"
-                android:layout_height="17dp"
-                android:background="@drawable/rectangle_layout_menulist">
+                android:background="@drawable/rectangle_layout_menulist" />
 
-                <ImageView
-                    android:id="@+id/img_add"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_add"
-                    android:layout_marginStart="7dp"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"/>
-
-                <TextView
-                    android:id="@+id/tv_add"
-                    android:layout_toEndOf="@id/img_add"
-                    android:text="@string/add"
-                    android:textSize="11sp"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="7dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_food_name"
+                android:layout_marginVertical="5dp"
+                android:text="@string/price"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
 
         </RelativeLayout>
 

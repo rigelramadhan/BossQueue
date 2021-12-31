@@ -3,7 +3,9 @@ package com.rigelramadhan.bossqueue.view
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.midtrans.sdk.corekit.callback.TransactionFinishedCallback
 import com.midtrans.sdk.corekit.core.MidtransSDK
 import com.midtrans.sdk.corekit.core.PaymentMethod
@@ -17,9 +19,11 @@ import com.midtrans.sdk.corekit.models.snap.TransactionResult
 import com.midtrans.sdk.uikit.SdkUIFlowBuilder
 import com.rigelramadhan.bossqueue.R
 import com.rigelramadhan.bossqueue.SdkConfig
+import com.rigelramadhan.bossqueue.adapter.BasketAdapter
 import com.rigelramadhan.bossqueue.databinding.ActivityBasketBinding
 import com.rigelramadhan.bossqueue.model.SampleData
 import com.rigelramadhan.bossqueue.model.User
+import com.rigelramadhan.bossqueue.viewmodel.BasketViewModel
 
 class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
     // TODO: COMPLETE THE BASKET
@@ -29,25 +33,22 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
 
     private lateinit var binding: ActivityBasketBinding
     private lateinit var user: User
-    private var userId = 0
+    val basketViewModel by viewModels<BasketViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBasketBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        loadData()
+        basketViewModel.foods.observe(this, {
+            binding.rvFoods.apply {
+                adapter = BasketAdapter(this@BasketActivity, it)
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            }
+        })
 
         initActionButtons()
         initMidtransSdk()
-    }
-
-    private fun loadData() {
-        userId = intent.getIntExtra(EXTRA_USER_ID, 1)
-//        binding.rvFoods.apply {
-//            adapter = RemoveFoodAdapter(basketViewModel.getFoods())
-//            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-//        }
     }
 
     private fun initTransactionRequest(): TransactionRequest {

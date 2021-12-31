@@ -22,7 +22,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMenuBinding
-    private val menuViewModel: MenuViewModel by viewModels {
+    val menuViewModel: MenuViewModel by viewModels {
         val placeId = intent.getStringExtra(EXTRA_PLACE_ID)
         if (placeId != null) {
             MenuViewModel.MenuViewModelFactory(placeId)

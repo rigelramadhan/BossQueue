@@ -55,7 +55,7 @@
                 android:textSize="11sp" />
 
             <RelativeLayout
-                android:id="@+id/layout_add"
+                android:id="@+id/layout_remove"
                 android:layout_below="@id/tv_food_name"
                 android:layout_centerHorizontal="true"
                 android:layout_marginVertical="5dp"
@@ -63,23 +63,15 @@
                 android:layout_height="17dp"
                 android:background="@drawable/rectangle_layout_menulist">
 
-                <ImageView
-                    android:id="@+id/img_add"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_add"
-                    android:layout_marginStart="7dp"
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"/>
-
                 <TextView
-                    android:id="@+id/tv_add"
-                    android:layout_toEndOf="@id/img_add"
-                    android:text="@string/remove"
-                    android:textSize="11sp"
-                    android:textColor="@color/white"
-                    android:layout_marginStart="7dp"
+                    android:id="@+id/tv_remove"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/remove"
+                    android:textColor="@color/white"
+                    android:textSize="11sp" />
 
             </RelativeLayout>
 

@@ -36,9 +36,9 @@ object SampleData {
 //        Food("Food9", "Ini adalah deskripsi food9", 48600.0, "", 2, "3"),
 //    )
 
-    val basketSampleData = arrayListOf<Basket>(
-        Basket(1, 1, 2),
-        Basket(2, 1, 1),
-        Basket(3, 1, 1),
-    )
+//    val basketSampleData = arrayListOf<Basket>(
+//        Basket(1, 1, 2),
+//        Basket(2, 1, 1),
+//        Basket(3, 1, 1),
+//    )
 }
