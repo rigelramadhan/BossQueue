@@ -19,6 +19,13 @@ class UserViewModel(private val auth: FirebaseAuth) : ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
 
+    companion object {
+        fun getUser(): User? {
+            val userViewModel = UserViewModel(FirebaseAuth.getInstance())
+            return userViewModel.user.value
+        }
+    }
+
     init {
         fetchData()
     }

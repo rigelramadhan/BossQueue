@@ -8,6 +8,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.rigelramadhan.bossqueue.model.Basket
 import com.rigelramadhan.bossqueue.model.Food
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.util.LoadingState
@@ -23,6 +24,9 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
 
     private val _place = MutableLiveData<Place>()
     val place: LiveData<Place> = _place
+
+    private val _basket = MutableLiveData<List<Basket>>()
+    val basket: LiveData<List<Basket>> = _basket
 
     init {
         fetchData()
@@ -75,6 +79,37 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
                 }
 
             })
+        }
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val queryBasket = Firebase.database.getReference("basket")
+            queryBasket.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val basketList = mutableListOf<Basket>()
+                    for (data in snapshot.children) {
+                        if (data.key == UserViewModel.getUser()?.id) {
+                            val basket = data.getValue<Basket>()
+                            basket!!.userId = data.key
+                            basketList.add(basket)
+                        }
+                    }
+                    _basket.postValue(basketList)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+
+            })
+        }
+    }
+
+    fun createBasket(userId: String, foodId: String, placeId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            Firebase.database.reference.child("baskets").child(userId)
+                .child("foodId").setValue(foodId)
+            Firebase.database.reference.child("baskets").child(userId)
+                .child("placeId").setValue(placeId)
         }
     }
 

@@ -40,16 +40,7 @@ class FoodAdapter(private val activity: AppCompatActivity, private val list: Lis
         }
 
         holder.binding.cvFood.setOnClickListener {
-            val addBtnVisibility = holder.binding.layoutAdd.visibility
-            if (addBtnVisibility == View.INVISIBLE) {
-                SampleData.bill -= food.price!!
-                holder.binding.layoutAdd.visibility = View.VISIBLE
-            } else {
-                SampleData.bill += food.price!!
-                holder.binding.layoutAdd.visibility = View.INVISIBLE
-            }
-
-            basketText?.text = if (SampleData.bill <= 0.0) activity.resources.getString(R.string.basket) else "Rp${food.price.toString()}"
+            // TODO: COMPLETE THE ON CLICK LISTENER
         }
     }
 
