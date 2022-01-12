@@ -12,6 +12,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.User
 import com.rigelramadhan.bossqueue.util.LoadingState
@@ -24,6 +26,7 @@ import kotlinx.coroutines.launch
 class AuthViewModel() : ViewModel() {
     private var auth: FirebaseAuth = Firebase.auth
     private var database: DatabaseReference = Firebase.database.reference
+    private val db = Firebase.firestore
 
     private val _loading = MutableLiveData<LoadingState>()
     val loading: LiveData<LoadingState> = _loading
@@ -66,12 +69,13 @@ class AuthViewModel() : ViewModel() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(activity) { task ->
                 if (task.isSuccessful) {
-                    Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     if (user != null) {
-                        createUser(user.uid, name, email, password, location)
+                        createUser(activity, user.uid, name, email, password, location)
                         _loading.postValue(LoadingState.LOADED)
+                        Log.d(TAG, "createUserWithEmail:success")
                     }
+//                    auth.signOut()
                     directToLogin(activity)
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -86,9 +90,25 @@ class AuthViewModel() : ViewModel() {
         auth.signOut()
     }
 
-    fun createUser(userId: String, name: String, email: String, password: String, location: String) {
-        val user = User(null, name, email, password, location)
-        database.child("users").child(userId).setValue(user)
+    private fun createUser(activity: AppCompatActivity, userId: String, name: String, email: String, password: String, location: String) {
+//        val user = User(null, name, email, password, location)
+        val user = hashMapOf(
+            "name" to name,
+            "email" to email,
+            "password" to password,
+            "location" to location
+        )
+
+        Log.d(TAG, "Adding user")
+        db.collection("users")
+            .document(userId)
+            .set(user)
+            .addOnSuccessListener {
+                Toast.makeText(activity, "$userId has been added", Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(activity, "FAILED", Toast.LENGTH_SHORT).show()
+            }
     }
 
     private fun directToMainMenu(activity: AppCompatActivity) {

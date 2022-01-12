@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rigelramadhan.bossqueue.adapter.PlaceAdapter
 import com.rigelramadhan.bossqueue.databinding.FragmentHomeBinding
@@ -28,7 +27,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        homeViewModel.data.observe(activity as AppCompatActivity, {
+        homeViewModel.places.observe(activity as AppCompatActivity, {
             binding.rvHotnow.apply {
                 adapter = PlaceAdapter(activity as AppCompatActivity, it)
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
