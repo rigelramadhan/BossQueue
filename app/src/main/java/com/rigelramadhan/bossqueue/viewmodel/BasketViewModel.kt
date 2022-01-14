@@ -11,8 +11,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Basket
+import com.rigelramadhan.bossqueue.model.Basket.Companion.toBasket
 import com.rigelramadhan.bossqueue.model.Food
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
@@ -32,53 +34,25 @@ class BasketViewModel : ViewModel() {
 
     private fun fetchData() {
         viewModelScope.launch(Dispatchers.IO) {
-            val basketQuery = Firebase.database.getReference("baskets")
-            basketQuery.orderByChild("user_id").equalTo(FirebaseAuth.getInstance().uid)
-                .addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        val baskets = mutableListOf<Basket>()
-                        for (data in snapshot.children) {
-                            val basket = data.getValue<Basket>()
-                            if (basket != null) {
-                                baskets.add(basket)
-                            }
+            val db = Firebase.firestore
+            db.collection("baskets")
+                .get()
+                .addOnSuccessListener { result ->
+                    val baskets = mutableListOf<Basket>()
+                    for (document in result) {
+                        if (document["userId"] == FirebaseAuth.getInstance().uid) {
+                            val basket = document.toBasket()
+                            baskets.add(basket!!)
                         }
-                        _basket.postValue(baskets)
-                        getFoods(baskets)
                     }
-
-                    override fun onCancelled(error: DatabaseError) {
-
-                    }
-                })
+                    _basket.postValue(baskets)
+                }
         }
     }
 
     private fun getFoods(baskets: List<Basket>) {
         viewModelScope.launch(Dispatchers.IO) {
-            val checkFoods = Firebase.database.getReference("foods")
-            checkFoods.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    val foods = mutableListOf<Food>()
-                    val ids = mutableListOf<String>()
-                    for (basket in baskets) {
-                        ids.add(basket.foodId!!)
-                    }
-                    for (data in snapshot.children) {
-                        val food = data.getValue<Food>()
-                        if (food != null) {
-                            if (food.id in ids) {
-                                food.id = data.key
-                                foods.add(food)
-                            }
-                        }
-                    }
-                    _foods.postValue(foods)
-                }
 
-                override fun onCancelled(error: DatabaseError) {
-                }
-            })
         }
     }
 

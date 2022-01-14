@@ -1,5 +1,11 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
+### Update 2022/1/14 (Rigel)
+- Switched from using Realtime Database to Firestore for static data
+- Started to implement repository pattern
+- Added Firebase's equivalent of "toObject()" for every data
+- Place menu and food menu is working (not completely) 
+
 ### Update 2021/12/28 (Rigel)
 - Implemented ViewModel for menu
 - Implemented menu page for places

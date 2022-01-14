@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Place
+import com.rigelramadhan.bossqueue.model.Place.Companion.toPlace
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,9 +40,8 @@ class HomeViewModel : ViewModel() {
                     } else {
                         val places = mutableListOf<Place>()
                         for (document in result) {
-                            val place = document.toObject(Place::class.java)
-                            place.id = document.id
-                            places.add(place)
+                            val place = document.toPlace()
+                            places.add(place!!)
                         }
                         Log.d(TAG, "Get places data success, total: ${places.size}")
                         _places.postValue(places)

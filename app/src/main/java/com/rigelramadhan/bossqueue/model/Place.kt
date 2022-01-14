@@ -1,7 +1,9 @@
 package com.rigelramadhan.bossqueue.model
 
 import android.os.Parcelable
+import com.google.firebase.firestore.DocumentSnapshot
 import kotlinx.parcelize.Parcelize
+import java.lang.Exception
 
 @Parcelize
 data class Place(
@@ -11,4 +13,19 @@ data class Place(
     val description: String? = null,
     val open: Boolean? = null,
     val picture: String? = null
-) : Parcelable
+) : Parcelable {
+    companion object {
+        fun DocumentSnapshot.toPlace() : Place? {
+            return try {
+                val name = getString("name")
+                val location = getString("location")
+                val description = getString("description")
+                val open = getBoolean("open")
+                val picture = getString("picture")
+                Place(id, name, location, description, open, picture)
+            } catch(e: Exception) {
+                null
+            }
+        }
+    }
+}
