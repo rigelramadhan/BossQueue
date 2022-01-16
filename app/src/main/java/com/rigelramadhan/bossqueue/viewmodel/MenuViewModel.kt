@@ -3,19 +3,14 @@ package com.rigelramadhan.bossqueue.viewmodel
 import android.util.Log
 import androidx.lifecycle.*
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Basket
 import com.rigelramadhan.bossqueue.model.Basket.Companion.toBasket
 import com.rigelramadhan.bossqueue.model.Food
-import com.rigelramadhan.bossqueue.model.Food.Companion.toFood
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.Place.Companion.toPlace
+import com.rigelramadhan.bossqueue.repository.BasketRepository
 import com.rigelramadhan.bossqueue.repository.FoodRepository
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
@@ -27,8 +22,14 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
     private val _loading = MutableLiveData<LoadingState>()
     val loading: LiveData<LoadingState> get() = _loading
 
+    private val _allFoods = MutableLiveData<List<Food>>()
+    val allFoods: LiveData<List<Food>> = _allFoods
+
     private val _foods = MutableLiveData<List<Food>>()
     val foods: LiveData<List<Food>> = _foods
+
+    private val _drinks = MutableLiveData<List<Food>>()
+    val drinks: LiveData<List<Food>> = _drinks
 
     private val _place = MutableLiveData<Place>()
     val place: LiveData<Place> = _place
@@ -46,10 +47,12 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
 
     private fun fetchData() {
         Log.d(TAG, "PlaceID: $placeId")
+        val foods = FoodRepository.getFoodsByPlaceId(placeId)
         _loading.postValue(LoadingState.LOADING)
 
         viewModelScope.launch(Dispatchers.IO) {
-            _foods.postValue(FoodRepository.getFoodsByPlaceId(placeId))
+            _foods.postValue(FoodRepository.getFilteredFoods(foods, Food.FOOD))
+            _drinks.postValue(FoodRepository.getFilteredFoods(foods, Food.DRINK))
         }
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -92,6 +95,10 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
                 .add(basket)
                 .addOnSuccessListener {
                     Log.d(TAG, "Data set completed, data: $basket")
+                    val basketData = Basket(it.id, basket["userId"], basket["placeId"], basket["foodId"])
+                    val baskets = BasketRepository.getBasket().value as MutableList<Basket>
+                    baskets.add(basketData)
+                    BasketRepository.getBasket().postValue(baskets)
                 }
         }
     }

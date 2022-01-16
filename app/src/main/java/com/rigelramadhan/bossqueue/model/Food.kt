@@ -15,6 +15,9 @@ data class Food(
     val placeId: String? = null
 ): Parcelable {
     companion object {
+        const val DRINK = 2
+        const val FOOD = 1
+
         fun DocumentSnapshot.toFood() : Food? {
             return try {
                 val name = getString("name")

@@ -1,9 +1,6 @@
 package com.rigelramadhan.bossqueue.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.ktx.firestore
@@ -16,24 +13,22 @@ import com.rigelramadhan.bossqueue.repository.BasketRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class BasketViewModel : ViewModel() {
+class BasketViewModel(private val placeId: String) : ViewModel() {
     // TODO: STILL UNABLE TO GET FOODS THAT'S ONLY IN THE BASKET
-    val basket: LiveData<List<Basket>> = BasketRepository.getBasket()
+    private val _baskets = MutableLiveData<List<Basket>>()
+    val basket: LiveData<List<Basket>> = _baskets
 
-    fun checkBucketAvailability(foodId: String) : Boolean {
-        for (i in this.basket.value!!) {
-            if (i.foodId == foodId) {
-                return true
-            }
-        }
-
-        return false
-    }
-
-    fun deleteBasket(userId: String, foodId: String, placeId: String) {
+    init {
         viewModelScope.launch(Dispatchers.IO) {
-            val basketId = "${userId.subSequence(0, 3)}${foodId.subSequence(0, 3)}${placeId.subSequence(0, 3)}"
-            Firebase.database.getReference("baskets").child(basketId).removeValue()
+            _baskets.postValue(BasketRepository.getBasketByPlaceId(placeId))
         }
     }
+
+    class BasketViewModelFactory(private val placeId: String = "0") : ViewModelProvider.NewInstanceFactory() {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            return BasketViewModel(placeId) as T
+        }
+    }
+
 }

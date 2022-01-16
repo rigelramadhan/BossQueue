@@ -7,8 +7,6 @@ import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Basket
 import com.rigelramadhan.bossqueue.model.Food
 import com.rigelramadhan.bossqueue.model.Food.Companion.toFood
-import com.rigelramadhan.bossqueue.util.LoadingState
-import com.rigelramadhan.bossqueue.viewmodel.MenuViewModel
 
 object FoodRepository {
     private val mFoods = MutableLiveData<List<Food>>()
@@ -29,6 +27,17 @@ object FoodRepository {
     }
 
     fun getFoods() = mFoods
+
+    fun getFilteredFoods(foods: List<Food>, categoryId: Int): List<Food> {
+        val newFoods = mutableListOf<Food>()
+        for (i in foods) {
+            if (i.categoryId == categoryId) {
+                newFoods.add(i)
+            }
+        }
+
+        return newFoods
+    }
 
     fun getFoodsByPlaceId(placeId: String): List<Food> {
         // TODO: FIX GET FOOD BY ID INEFFICIENCY

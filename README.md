@@ -1,5 +1,11 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
+### Update 2022/1/17 (Rigel)
+- All the main functionality of food ordering is not complete but not polished and cleaned
+- All bugs regarding the main food transactions are gone
+- Will be working on making the codes cleaner and more efficient
+- WIll be working on the UI/UX side of it
+
 ### Update 2022/1/14 (Rigel)
 - Switched from using Realtime Database to Firestore for static data
 - Started to implement repository pattern

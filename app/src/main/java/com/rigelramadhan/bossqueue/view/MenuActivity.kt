@@ -22,9 +22,11 @@ class MenuActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityMenuBinding
+    private lateinit var placeId: String
     val menuViewModel: MenuViewModel by viewModels {
         val placeId = intent.getStringExtra(EXTRA_PLACE_ID)
         if (placeId != null) {
+            this.placeId = placeId
             MenuViewModel.MenuViewModelFactory(placeId)
         } else MenuViewModel.MenuViewModelFactory()
     }
@@ -39,7 +41,9 @@ class MenuActivity : AppCompatActivity() {
                 adapter = FoodAdapter(this@MenuActivity, it)
                 layoutManager = LinearLayoutManager(this@MenuActivity, LinearLayoutManager.HORIZONTAL, false)
             }
+        })
 
+        menuViewModel.drinks.observe(this, {
             binding.rvDrink2.apply {
                 adapter = FoodAdapter(this@MenuActivity, it)
                 layoutManager = LinearLayoutManager(this@MenuActivity, LinearLayoutManager.HORIZONTAL, false)
@@ -77,6 +81,7 @@ class MenuActivity : AppCompatActivity() {
             binding.layoutBasket.setOnClickListener {
                 val intent = Intent(this, BasketActivity::class.java)
                 intent.putExtra(BasketActivity.EXTRA_USER_ID, place.name)
+                intent.putExtra(BasketActivity.EXTRA_PLACE_ID, placeId)
                 startActivity(intent)
             }
         })

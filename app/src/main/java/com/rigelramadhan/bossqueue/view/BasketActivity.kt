@@ -23,17 +23,24 @@ import com.rigelramadhan.bossqueue.adapter.BasketAdapter
 import com.rigelramadhan.bossqueue.databinding.ActivityBasketBinding
 import com.rigelramadhan.bossqueue.model.SampleData
 import com.rigelramadhan.bossqueue.model.User
+import com.rigelramadhan.bossqueue.repository.BasketRepository
 import com.rigelramadhan.bossqueue.viewmodel.BasketViewModel
 
 class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
     // TODO: COMPLETE THE BASKET
     companion object {
         const val EXTRA_USER_ID = "extra_user_id"
+        const val EXTRA_PLACE_ID = "extra_place_id"
     }
 
     private lateinit var binding: ActivityBasketBinding
     private lateinit var user: User
-    val basketViewModel by viewModels<BasketViewModel>()
+    private lateinit var placeId: String
+    private val basketViewModel: BasketViewModel by viewModels {
+        val placeId = intent.getStringExtra(EXTRA_PLACE_ID)
+        this.placeId = placeId!!
+        BasketViewModel.BasketViewModelFactory(placeId!!)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +53,8 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             }
         })
+
+        binding.tvPayAmount.text = "Rp${BasketRepository.getTotalPrice(placeId)}"
 
         initActionButtons()
         initMidtransSdk()
