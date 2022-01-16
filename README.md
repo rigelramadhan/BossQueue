@@ -1,7 +1,7 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
 ### Update 2022/1/17 (Rigel)
-- All the main functionality of food ordering is not complete but not polished and cleaned
+- All the main functionality of food ordering is complete but not polished and cleaned
 - All bugs regarding the main food transactions are gone
 - Will be working on making the codes cleaner and more efficient
 - WIll be working on the UI/UX side of it
