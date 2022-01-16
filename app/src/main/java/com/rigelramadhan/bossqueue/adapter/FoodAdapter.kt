@@ -14,6 +14,8 @@ import com.rigelramadhan.bossqueue.R
 import com.rigelramadhan.bossqueue.databinding.ItemCardFoodBinding
 import com.rigelramadhan.bossqueue.model.Food
 import com.rigelramadhan.bossqueue.model.SampleData
+import com.rigelramadhan.bossqueue.repository.BasketRepository
+import com.rigelramadhan.bossqueue.repository.FoodRepository
 import com.rigelramadhan.bossqueue.view.MenuActivity
 
 class FoodAdapter(private val activity: MenuActivity, private val list: List<Food>, private val basketText: TextView? = null) : RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
@@ -28,6 +30,10 @@ class FoodAdapter(private val activity: MenuActivity, private val list: List<Foo
         val food = list[position]
         holder.binding.tvFoodName.text = food.name
         holder.binding.tvPrice.text = "Rp${food.price.toString()}"
+
+        if (BasketRepository.checkBucketAvailability(food.id!!)) {
+            buttonOff(holder)
+        }
 
         val storage = FirebaseStorage.getInstance()
         val gsRef = storage.getReferenceFromUrl(food.picture!!)
@@ -44,21 +50,17 @@ class FoodAdapter(private val activity: MenuActivity, private val list: List<Foo
         holder.binding.cvFood.setOnClickListener {
             when (holder.binding.layoutAdd.visibility) {
                 View.VISIBLE -> {
-                    activity.menuViewModel.createBasket(FirebaseAuth.getInstance().uid!!, food.id!!, food.placeId!!)
-                    holder.binding.layoutAdd.visibility = View.INVISIBLE
-                    holder.binding.tvPrice.apply {
-                        text = activity.getString(R.string.added_text)
-                        setTextColor(activity.resources.getColor(R.color.black))
-                    }
+                    activity.menuViewModel.createBasket(
+                        FirebaseAuth.getInstance().uid!!,
+                        food.id!!,
+                        food.placeId!!
+                    )
+                    buttonOff(holder)
                 }
                 
                 View.INVISIBLE -> {
-                    activity.menuViewModel.deleteBasket(FirebaseAuth.getInstance().uid!!, food.id!!, food.placeId!!)
-                    holder.binding.layoutAdd.visibility = View.VISIBLE
-                    holder.binding.tvPrice.apply {
-                        text = "Rp${food.price.toString()}"
-                        setTextColor(activity.resources.getColor(R.color.white))
-                    }
+                    BasketRepository.deleteBasketByFoodId(food.id!!)
+                    buttonOn(holder, food)
                 }
                 
                 else -> {}
@@ -68,4 +70,19 @@ class FoodAdapter(private val activity: MenuActivity, private val list: List<Foo
 
     override fun getItemCount() = list.size
 
+    private fun buttonOn(holder: ViewHolder, food: Food) {
+        holder.binding.layoutAdd.visibility = View.VISIBLE
+        holder.binding.tvPrice.apply {
+            text = "Rp${food.price.toString()}"
+            setTextColor(activity.resources.getColor(R.color.white))
+        }
+    }
+
+    private fun buttonOff(holder: ViewHolder) {
+        holder.binding.layoutAdd.visibility = View.INVISIBLE
+        holder.binding.tvPrice.apply {
+            text = activity.getString(R.string.added_text)
+            setTextColor(activity.resources.getColor(R.color.black))
+        }
+    }
 }

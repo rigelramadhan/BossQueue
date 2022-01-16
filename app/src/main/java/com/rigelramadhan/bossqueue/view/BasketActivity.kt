@@ -40,7 +40,7 @@ class BasketActivity : AppCompatActivity(), TransactionFinishedCallback {
         binding = ActivityBasketBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        basketViewModel.foods.observe(this, {
+        basketViewModel.basket.observe(this, {
             binding.rvFoods.apply {
                 adapter = BasketAdapter(this@BasketActivity, it)
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)

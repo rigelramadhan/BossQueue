@@ -8,7 +8,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rigelramadhan.bossqueue.R
 import com.rigelramadhan.bossqueue.databinding.ActivityMainNavBinding
+import com.rigelramadhan.bossqueue.repository.BasketRepository
+import com.rigelramadhan.bossqueue.repository.FoodRepository
+import com.rigelramadhan.bossqueue.repository.PlaceRepository
 import com.rigelramadhan.bossqueue.viewmodel.AuthViewModel
+import kotlinx.coroutines.runBlocking
 
 class MainNavActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainNavBinding
@@ -18,6 +22,7 @@ class MainNavActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainNavBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val navView: BottomNavigationView = binding.navView
         val navHostFragment =
@@ -30,5 +35,10 @@ class MainNavActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         authViewModel.checkIfUserSignedIn(this)
+        runBlocking {
+            FoodRepository
+            PlaceRepository
+            BasketRepository
+        }
     }
 }

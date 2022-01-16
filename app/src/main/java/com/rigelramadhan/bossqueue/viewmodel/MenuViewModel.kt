@@ -16,6 +16,7 @@ import com.rigelramadhan.bossqueue.model.Food
 import com.rigelramadhan.bossqueue.model.Food.Companion.toFood
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.Place.Companion.toPlace
+import com.rigelramadhan.bossqueue.repository.FoodRepository
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,23 +46,10 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
 
     private fun fetchData() {
         Log.d(TAG, "PlaceID: $placeId")
+        _loading.postValue(LoadingState.LOADING)
+
         viewModelScope.launch(Dispatchers.IO) {
-            _loading.postValue(LoadingState.LOADING)
-            db.collection("foods")
-                .get()
-                .addOnSuccessListener { result ->
-                    val foods = mutableListOf<Food>()
-                    for (document in result) {
-                        if (document.get("placeId") == placeId) {
-                            Log.d(TAG, "Food: $document")
-                            val food = document.toFood()
-                            foods.add(food!!)
-                        }
-                    }
-                    Log.d(TAG, "Foods: $foods")
-                    _foods.postValue(foods)
-                    _loading.postValue(LoadingState.LOADED)
-                }
+            _foods.postValue(FoodRepository.getFoodsByPlaceId(placeId))
         }
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -87,6 +75,7 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
                             baskets.add(basket!!)
                         }
                     }
+                    _basket.postValue(baskets)
                 }
         }
     }
