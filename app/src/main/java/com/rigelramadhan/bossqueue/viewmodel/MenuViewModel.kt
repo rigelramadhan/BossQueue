@@ -12,6 +12,7 @@ import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.Place.Companion.toPlace
 import com.rigelramadhan.bossqueue.repository.BasketRepository
 import com.rigelramadhan.bossqueue.repository.FoodRepository
+import com.rigelramadhan.bossqueue.repository.PlaceRepository
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,9 +22,6 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
 
     private val _loading = MutableLiveData<LoadingState>()
     val loading: LiveData<LoadingState> get() = _loading
-
-    private val _allFoods = MutableLiveData<List<Food>>()
-    val allFoods: LiveData<List<Food>> = _allFoods
 
     private val _foods = MutableLiveData<List<Food>>()
     val foods: LiveData<List<Food>> = _foods
@@ -56,13 +54,7 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
         }
 
         viewModelScope.launch(Dispatchers.IO) {
-            db.collection("places")
-                .document(placeId)
-                .get()
-                .addOnSuccessListener { result ->
-                    val place = result.toPlace()
-                    _place.postValue(place!!)
-                }
+            _place.postValue(PlaceRepository.getPlaceById(placeId))
         }
 
         viewModelScope.launch(Dispatchers.IO) {

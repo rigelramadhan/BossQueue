@@ -9,6 +9,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.Place.Companion.toPlace
+import com.rigelramadhan.bossqueue.repository.PlaceRepository
 import com.rigelramadhan.bossqueue.util.LoadingState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +18,7 @@ class HomeViewModel : ViewModel() {
     private val _loading = MutableLiveData<LoadingState>()
     val loading: LiveData<LoadingState> get() = _loading
 
-    private val _places = MutableLiveData<List<Place>>()
+    private val _places = PlaceRepository.getPlaces()
     val places: LiveData<List<Place>> get() = _places
 
     companion object {
@@ -25,32 +26,6 @@ class HomeViewModel : ViewModel() {
     }
 
     init {
-        fetchData()
-    }
 
-    private fun fetchData() {
-        viewModelScope.launch(Dispatchers.IO) {
-            _loading.postValue(LoadingState.LOADING)
-            val db = Firebase.firestore
-            db.collection("places")
-                .get()
-                .addOnSuccessListener { result ->
-                    if (result.isEmpty) {
-                        Log.d(TAG, "Data is empty.")
-                    } else {
-                        val places = mutableListOf<Place>()
-                        for (document in result) {
-                            val place = document.toPlace()
-                            places.add(place!!)
-                        }
-                        Log.d(TAG, "Get places data success, total: ${places.size}")
-                        _places.postValue(places)
-                        _loading.postValue(LoadingState.LOADED)
-                    }
-                }
-                .addOnFailureListener {
-                    Log.d(TAG, "GET PLACES DATA FAILED:\n${it.message}")
-                }
-        }
     }
 }
