@@ -5,12 +5,15 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Place
 import com.rigelramadhan.bossqueue.model.Place.Companion.toPlace
+import com.rigelramadhan.bossqueue.util.LoadingState
 
 object PlaceRepository {
     private val mPlaces = MutableLiveData<List<Place>>()
+    private val mLoadingState = MutableLiveData<LoadingState>()
     private const val TAG = "PlaceRepository"
 
     init {
+        mLoadingState.postValue(LoadingState.LOADING)
         val db = Firebase.firestore
         db.collection("places")
             .get()
@@ -20,8 +23,11 @@ object PlaceRepository {
                     places.add(document.toPlace()!!)
                 }
                 mPlaces.postValue(places)
+                mLoadingState.postValue(LoadingState.LOADED)
             }
     }
+
+    fun getLoadingState() = mLoadingState
 
     fun getPlaces() = mPlaces
 

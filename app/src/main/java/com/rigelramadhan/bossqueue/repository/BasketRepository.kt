@@ -9,19 +9,18 @@ import com.google.firebase.ktx.Firebase
 import com.rigelramadhan.bossqueue.model.Basket
 import com.rigelramadhan.bossqueue.model.Basket.Companion.toBasket
 import com.rigelramadhan.bossqueue.model.Food
+import com.rigelramadhan.bossqueue.viewmodel.MenuViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 object BasketRepository {
     // TODO: FIX THE DELETE BASKET CODE
+    private val db = Firebase.firestore.collection("baskets")
     private val mBasket = MutableLiveData<List<Basket>>()
     private const val TAG = "BasketRepository"
 
     init {
-        val db = Firebase.firestore
-        db.collection("baskets")
-            .get()
-            .addOnSuccessListener { result ->
+        db.get().addOnSuccessListener { result ->
                 val baskets = mutableListOf<Basket>()
                 for (document in result) {
                     if (document["userId"] == FirebaseAuth.getInstance().uid) {
@@ -33,13 +32,29 @@ object BasketRepository {
             }
     }
 
+    fun createBasket(userId: String, foodId: String, placeId: String) {
+        val basket = hashMapOf(
+            "userId" to userId,
+            "foodId" to foodId,
+            "placeId" to placeId
+        )
+
+        db.add(basket).addOnSuccessListener {
+                Log.d(TAG, "Data set completed, data: $basket")
+                val basketData = Basket(it.id, basket["userId"], basket["placeId"], basket["foodId"])
+                val baskets = mBasket.value as MutableList<Basket>
+                baskets.add(basketData)
+                mBasket.postValue(baskets)
+            }
+    }
+
     fun getBasket() = mBasket
 
     fun getBasketByPlaceId(placeId: String): List<Basket> {
         val baskets = mutableListOf<Basket>()
 
         for (i in mBasket.value!!) {
-            if (i.placeId == placeId) {
+            if (i.placeId == placeId && i.userId == FirebaseAuth.getInstance().uid) {
                 baskets.add(i)
             }
         }
@@ -48,19 +63,17 @@ object BasketRepository {
     }
 
     fun deleteBasket(basketId: String) {
-        val db = Firebase.firestore
-        db.collection("baskets").document(basketId).delete()
+        db.document(basketId).delete()
             .addOnCompleteListener {
-                val baskets = mBasket.value as MutableList<Basket>
+                mBasket.value as MutableList<Basket>
             }
     }
 
     fun deleteBasketByFoodId(foodId: String) {
         Log.d(TAG, "DELETING BASKET WITH FOOD: $foodId")
-        val db = Firebase.firestore
         for (i in mBasket.value!!) {
             if (i.foodId == foodId && i.userId == FirebaseAuth.getInstance().uid) {
-                db.collection("baskets").document(i.basketId!!).delete()
+                db.document(i.basketId!!).delete()
                     .addOnCompleteListener {
                         val baskets = mBasket.value as MutableList<Basket>
                         baskets.remove(i)

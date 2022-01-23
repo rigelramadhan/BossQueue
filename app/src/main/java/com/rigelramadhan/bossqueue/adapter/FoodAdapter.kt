@@ -46,7 +46,7 @@ class FoodAdapter(private val activity: MenuActivity, private val list: List<Foo
         holder.binding.cvFood.setOnClickListener {
             when (holder.binding.layoutAdd.visibility) {
                 View.VISIBLE -> {
-                    activity.menuViewModel.createBasket(
+                    activity.menuViewModel.addFoodToBasket(
                         FirebaseAuth.getInstance().uid!!,
                         food.id!!,
                         food.placeId!!

@@ -15,7 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class HomeViewModel : ViewModel() {
-    private val _loading = MutableLiveData<LoadingState>()
+    private val _loading = PlaceRepository.getLoadingState()
     val loading: LiveData<LoadingState> get() = _loading
 
     private val _places = PlaceRepository.getPlaces()

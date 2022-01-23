@@ -51,6 +51,7 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             _foods.postValue(FoodRepository.getFilteredFoods(foods, Food.FOOD))
             _drinks.postValue(FoodRepository.getFilteredFoods(foods, Food.DRINK))
+            _loading.postValue(LoadingState.LOADED)
         }
 
         viewModelScope.launch(Dispatchers.IO) {
@@ -58,40 +59,13 @@ class MenuViewModel(private val placeId: String) : ViewModel() {
         }
 
         viewModelScope.launch(Dispatchers.IO) {
-            db.collection("baskets")
-                .get()
-                .addOnSuccessListener { result ->
-                    val baskets = mutableListOf<Basket>()
-                    for (document in result) {
-                        if (document.get("placeId") == placeId &&
-                            document.get("userId") == FirebaseAuth.getInstance().uid) {
-
-                            val basket = document.toBasket()
-                            baskets.add(basket!!)
-                        }
-                    }
-                    _basket.postValue(baskets)
-                }
+            _basket.postValue(BasketRepository.getBasketByPlaceId(placeId))
         }
     }
 
-    fun createBasket(userId: String, foodId: String, placeId: String) {
+    fun addFoodToBasket(userId: String, foodId: String, placeId: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val basket = hashMapOf(
-                "userId" to userId,
-                "foodId" to foodId,
-                "placeId" to placeId
-            )
-
-            db.collection("baskets")
-                .add(basket)
-                .addOnSuccessListener {
-                    Log.d(TAG, "Data set completed, data: $basket")
-                    val basketData = Basket(it.id, basket["userId"], basket["placeId"], basket["foodId"])
-                    val baskets = BasketRepository.getBasket().value as MutableList<Basket>
-                    baskets.add(basketData)
-                    BasketRepository.getBasket().postValue(baskets)
-                }
+            BasketRepository.createBasket(userId, foodId, placeId)
         }
     }
 
