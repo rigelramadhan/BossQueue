@@ -1,5 +1,10 @@
 # BossQueue: An App That Makes Dine In Orders Easier
 
+### Update 2022/1/23 (Rigel)
+- ViewModels and Repositories are cleaned
+- Working on UI design using Figma
+- This project will be in pending state until the UI design is complete and ready to be implemented
+
 ### Update 2022/1/17 (Rigel)
 - All the main functionality of food ordering is complete but not polished and cleaned
 - All bugs regarding the main food transactions are gone
