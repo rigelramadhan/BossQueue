@@ -1,3 +1,4 @@
+## NOT YET DONE!
 # BossQueue: An App That Makes Dine In Orders Easier
 
 ### Update 2022/1/23 (Rigel)
